@@ -1,0 +1,1143 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"ali",
+				"text-align"
+			],
+			[
+				"app",
+				"applicationTitle"
+			],
+			[
+				"notifi",
+				"notifications-menu"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"page",
+				"page-header"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"d",
+				"solid"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"inpu",
+				"input-group"
+			],
+			[
+				"bord",
+				"border-top"
+			],
+			[
+				"id_p",
+				"id_pulau  (variable)"
+			],
+			[
+				"NAMA_",
+				"NAMA_PROVINSI"
+			],
+			[
+				"h",
+				"h5	Tag"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"conten",
+				"content-process"
+			],
+			[
+				"fo",
+				"form	Tag"
+			],
+			[
+				"siz",
+				"font-size"
+			],
+			[
+				"pro",
+				"prov_id"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"ri",
+				"right:   (property)"
+			],
+			[
+				"di",
+				"display:   (property)"
+			],
+			[
+				"back",
+				"background-position"
+			],
+			[
+				"align",
+				"vertical-align"
+			],
+			[
+				"add",
+				"addButton"
+			],
+			[
+				"ids",
+				"ids"
+			],
+			[
+				"id",
+				"id"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"pos",
+				"post_dosen"
+			],
+			[
+				"NM",
+				"NM_DOSEN"
+			],
+			[
+				"no_",
+				"NO_SURAT"
+			],
+			[
+				"TB_",
+				"TB_DETAIL_ST"
+			],
+			[
+				"tbd",
+				"tbd"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/xampp/htdocs/OAS-STATIC/adminlte/index.html",
+			"settings":
+			{
+				"buffer_size": 19752,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/OAS-STATIC/adminlte/welcome-page.html",
+			"settings":
+			{
+				"buffer_size": 658,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 83.0,
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"package control ve",
+				"Package Control: Discover Packages"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/css/AdminLTE.css",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/index.html",
+		"/C/Users/Billy/Desktop/malihu-custom-scrollbar-plugin-master/examples/full_page_demo.html",
+		"/C/Users/Billy/Desktop/malihu-custom-scrollbar-plugin-master/examples/auto_scrolling_example.html",
+		"/G/Dropbox/PROJECT/Lounge of Proyek4/Source/PHP/SSPD/design/js/mod_main.js",
+		"/G/Dropbox/PROJECT/Lounge of Proyek4/Source/PHP/SSPD/application/views/content/2/2001.php",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/js/AdminLTE/app.js",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formlist/leavelist.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formlist/notification.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-form.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-information.php",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-type.php",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-type2.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/leavelist2.html",
+		"/C/xampp/htdocs/template/AdminLTE-master/pages/charts/morris.html",
+		"/C/xampp/htdocs/template/AdminLTE-master/index.html",
+		"/G/Dropbox/PROJECT/Lounge of Proyek4/Source/PHP/SSPD/design/css/site.css",
+		"/C/Users/Billy/Desktop/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js",
+		"/C/Users/Billy/Desktop/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/UI/timeline.html",
+		"/G/Dropbox/PROJECT/Lounge of Proyek4/Source/PHP/SSPD/application/controllers/main.php",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-approval.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-confirmed-not.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-notconfirmed.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-confirmed-yes.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/widgets.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-type.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-approval",
+		"/G/Dropbox/PROJECT/Lounge of Proyek4/Source/PHP/SSPD/application/views/content/2/2111.php",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/leave-information.html",
+		"/G/OAS/99 Reference/OAS-STATIC/adminlte/pages/formsubmission/leavelist.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/calendar.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/general.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/editors.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/js/AdminLTE/demo.js",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/js/AdminLTE/dashboard.js",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/UI/general.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/advanced.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/pages/formsubmission/empty.html",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/less/core.less",
+		"/C/xampp/htdocs/OAS-STATIC/adminlte/less/dropdown.less",
+		"/C/Users/Ahmad/Desktop/index.html",
+		"/C/xampp/htdocs/experiment/style/style.css",
+		"/C/xampp/htdocs/experiment/content.php",
+		"/C/Users/Ahmad/Desktop/freebie-psd-flat-ui-kit-2-blog/css/style.css",
+		"/C/Users/Ahmad/Desktop/freebie-psd-flat-ui-kit-2-blog/index.html",
+		"/C/RKLauncher/RKLauncher.conf",
+		"/C/RKLauncher/itemlist.conf",
+		"/F/c/PTBSP/DIFOS/01 Document/02 DR/02 Database Design/difos 24022014.sql",
+		"/C/Users/Ahmad/Documents/OAS/menu1empty.bmml",
+		"/C/Users/Ahmad/Documents/OAS/Row_Col_Spans_(Balsamiq)_snipt.bmml",
+		"/C/xampp/htdocs/OAS/app/View/Author/Manage.html",
+		"/C/xampp/htdocs/OAS/app/View/Author/Login.html",
+		"/F/c/PTBSP/DIFOS/02 Source/01 PHP/DIFOS/app/index.php",
+		"/F/c/PTBSP/DIFOS/02 Source/01 PHP/DIFOS/index.php",
+		"/F/c/PTBSP/DIFOS/02 Source/01 PHP/DIFOS/app/webroot/index.php",
+		"/C/xampp/htdocs/OAS/app/Controller/Author_controller.php",
+		"/F/c/PTBSP/DIFOS/02 Source/01 PHP/DIFOS/app/Model/WDPS000100.php",
+		"/C/xampp/htdocs/OAS/app/Model/author.php",
+		"/F/c/PTBSP/DIFOS/02 Source/01 PHP/DIFOS/app/Config/core.php",
+		"/C/xampp/htdocs/OAS/app/Config/core.php",
+		"/C/xampp/htdocs/OAS/app/Config/database.php",
+		"/F/c/PTBSP/DIFOS/02 Source/01 PHP/DIFOS/app/Config/database.php",
+		"/G/Dropbox/WisataIndonesia/content-add.php",
+		"/G/Dropbox/WisataIndonesia/content-add-process.php",
+		"/G/Dropbox/WisataIndonesia/css/content-add_style.css",
+		"/G/Dropbox/WisataIndonesia/css/style.css",
+		"/G/Dropbox/WisataIndonesia/css/detailwisata_style2.css",
+		"/G/Dropbox/WisataIndonesia/css/detailwisata_icons.css",
+		"/G/Dropbox/WisataIndonesia/css/detailwisata_demo.css",
+		"/G/Dropbox/WisataIndonesia/css/detailwisata_common.css",
+		"/G/Dropbox/WisataIndonesia/css/detailwisata_style.css",
+		"/G/Dropbox/WisataIndonesia/detailwisata.old.php",
+		"/G/Dropbox/WisataIndonesia/css/pilihwisata_component.css",
+		"/G/Dropbox/WisataIndonesia/css/fonts/content-add_style.css",
+		"/G/Dropbox/WisataIndonesia/content-process.php",
+		"/G/Dropbox/WisataIndonesia/index.php",
+		"/G/Dropbox/WisataIndonesia/pilihwisata.old.php",
+		"/G/Dropbox/WisataIndonesia/pilihwisata.php",
+		"/G/Dropbox/WisataIndonesia/css/pilihwisata_default.css",
+		"/G/Dropbox/WisataIndonesia/kendoui/examples/combobox/index.html",
+		"/C/Users/Ahmad/Desktop/ibanez7z2w.sh",
+		"/C/xampp/htdocs/ThumbnailGridExpandingPreview/css/component.css",
+		"/G/Dropbox/WisataIndonesia/detailwisata.php",
+		"/G/Dropbox/WisataIndonesia/style/style.css",
+		"/G/Dropbox/WisataIndonesia/function.php",
+		"/G/Dropbox/WisataIndonesia/js/wisataindonesia_config.js",
+		"/G/Dropbox/WisataIndonesia/db-config.php",
+		"/C/xampp/htdocs/ThumbnailGridExpandingPreview/index.html",
+		"/C/xampp/htdocs/ThumbnailGridExpandingPreview/js/grid.js",
+		"/G/Dropbox/WisataIndonesia/kendoui/examples/dropdownlist/cascadingdropdownlist.html",
+		"/C/Users/Ahmad/Downloads/159.GIF",
+		"/C/xampp/htdocs/dynamiccombobox/getcity.php",
+		"/C/xampp/htdocs/dynamiccombobox/index.php",
+		"/C/xampp/htdocs/dynamiccombobox/js/ajax.js",
+		"/C/Users/Ahmad/Downloads/tb_m_pulau.csv",
+		"/C/Users/Ahmad/Documents/Wisata Indonesia/IMPORT.csv",
+		"/G/Dropbox/WisataIndonesia/images/vector_peta_indonesia.svg",
+		"/G/Dropbox/WisataIndonesia/index.html",
+		"/C/Users/Ahmad/Desktop/drop_down/config.php",
+		"/C/Users/Ahmad/Desktop/drop_down/dd.php",
+		"/C/Users/Ahmad/Desktop/drop_down/dd-check.php",
+		"/G/Dropbox/WisataIndonesia/kendoui/README",
+		"/G/Dropbox/WisataIndonesia/kendoui/js/kendo.combobox.min.js",
+		"/G/Dropbox/WisataIndonesia/kendoui/js/kendo.combobox.min.js.map",
+		"/C/xampp/htdocs/WisataIndonesia/images/vector_peta_indonesia.svg",
+		"/G/Dropbox/WisataIndonesia/images/vector_peta_indonesia_jabar.svg",
+		"/C/Users/Ahmad/Downloads/Illustrator_16_LS16.ef2",
+		"/G/Dropbox/WisataIndonesia/tugas_besar.sublime-project",
+		"/C/Users/Ahmad/Documents/Statistika/Pengaruh SmartPhone Terhadap Produktivitas Mahasiswa JTK.csv",
+		"/C/Users/Ahmad/Desktop/iphist.dat",
+		"/K/tbm_dosen (1).sql",
+		"/K/sspd.sql",
+		"/C/xampp/htdocs/SSPD/application/views/content/3/3003.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/design/js/mod_main.js",
+		"/C/xampp/htdocs/SSPD/application/webroot/.htaccess",
+		"/C/xampp/htdocs/SSPD/application/.htaccess",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/views/content/3/3002.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/views/content/1/1002.php",
+		"/C/xampp/htdocs/webpro/template.php",
+		"/C/xampp/htdocs/siseko/application/views/content/1/1001.php",
+		"/C/xampp/htdocs/siseko/application/views/content/1/1004.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/config/autoload.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/views/index.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/models/mMain.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/views/content/2/2111.php",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/index.html",
+		"/G/Dropbox/Lounge of Proyek4/Source/PHP/SSPD/application/views/content/1/1011.php"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\xampp\\htdocs\\OAS-STATIC\\adminlte\\js",
+			"C:\\xampp\\htdocs\\OAS-STATIC\\adminlte\\less",
+			"C:\\xampp\\htdocs\\OAS-STATIC\\adminlte",
+			"G:\\Dropbox\\Lounge of Proyek4\\Source\\PHP\\SSPD",
+			"G:\\Dropbox\\Lounge of Proyek4\\Source\\PHP\\SSPD\\application"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"/* %notification",
+			"/* notification",
+			"line char",
+			"19",
+			"15",
+			"overflow",
+			"Need Confirmation",
+			"overflow",
+			"notifications-menu",
+			"notification-menu",
+			"click",
+			"3 Jan",
+			"notifi",
+			"alert",
+			"addta",
+			"var act",
+			"postit",
+			"addTab",
+			"open_detail(this, event, 'Detail')",
+			"tr2dform2",
+			"<code>Confirmation",
+			"hide",
+			"notifica",
+			"input",
+			"mail",
+			"load",
+			"fff7bd",
+			"small-box bg-green",
+			"img/info.png",
+			"table",
+			"event",
+			"title",
+			"logo",
+			"header",
+			"logo:",
+			"color",
+			"header",
+			"toggle",
+			"dashboar",
+			"toggle",
+			"sidebar",
+			"reportrange",
+			"reservation",
+			"date range",
+			"border-top",
+			"border",
+			"layout",
+			"query",
+			"header",
+			".content",
+			"content",
+			"overflow",
+			"content",
+			"window",
+			"js",
+			"move",
+			"cursor:",
+			"cursor",
+			"move",
+			"icon",
+			"tab",
+			"tab-pane",
+			"move",
+			"cursor",
+			"sidebar-menu",
+			"<a ",
+			"<a",
+			"cursor",
+			"click",
+			"onclick",
+			"pagetab",
+			"edit",
+			"pace",
+			"Pace",
+			"margin",
+			"custom",
+			"boots",
+			".js",
+			"custom tab",
+			"input",
+			"content",
+			"fixed",
+			"wrapper",
+			"fix_sidebar",
+			"fix",
+			"slimscroll",
+			".slimscroll",
+			"slimscroll",
+			"slimscrol",
+			"fixed",
+			"fix_side",
+			"fixed",
+			"fix_side",
+			"body",
+			"morris",
+			"fonts/online/",
+			"sidebar",
+			"cursor",
+			"dashboard",
+			".js",
+			"click",
+			"left-side",
+			"collapse",
+			"left-side",
+			"row-offcanvas-left",
+			"2026",
+			"user-menu",
+			".js",
+			"index",
+			"tab",
+			"log",
+			"user",
+			"atas",
+			"z-inde",
+			"selected",
+			">\n",
+			"jquer",
+			"container",
+			"ha",
+			"alt",
+			"displa",
+			"img",
+			";",
+			"\"NULL\"",
+			"\\n",
+			";",
+			";\">",
+			"die()"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+			"Need To Be Approved",
+			"open_detail(this, 'Leave')",
+			"open_detail(this, 'Detail')",
+			"open_detail",
+			"<code>Need Confirmation",
+			"FFEE00",
+			"small-box bg-gray",
+			"../img/info.png",
+			"../../img/info.png",
+			"../fonts/online/",
+			",",
+			"NULL",
+			"\"\\n\"",
+			"\";\"",
+			"<?php ",
+			"<?php"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/xampp/htdocs/OAS-STATIC/adminlte/index.html",
+					"settings":
+					{
+						"buffer_size": 19752,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15834,
+								15834
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublime_auto_complete": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4668.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/OAS-STATIC/adminlte/welcome-page.html",
+					"settings":
+					{
+						"buffer_size": 658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								658,
+								19
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"auto_name": "",
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublime_auto_complete": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/xampp/htdocs/OAS/oas.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 199.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,32 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2016-02-16 10:24:02 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/system/database/drivers/mysql/mysql_driver.php 91
+ERROR - 2016-02-16 10:24:13 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/system/database/drivers/mysql/mysql_driver.php 91
+ERROR - 2016-02-16 10:24:13 --> Severity: Notice  --> Undefined variable: status_edit /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/application/views/v_oas039.php 108
+ERROR - 2016-02-16 10:24:13 --> Severity: Notice  --> Undefined variable: status_edit /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/application/views/v_oas039.php 118
+ERROR - 2016-02-16 10:24:13 --> Severity: Notice  --> Undefined variable: form_detail /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/application/views/v_oas039.php 411
+ERROR - 2016-02-16 10:24:36 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/system/database/drivers/mysql/mysql_driver.php 91
+ERROR - 2016-02-16 10:24:36 --> Severity: Notice  --> Undefined variable: form_data /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/application/views/v_oas037.php 74
+ERROR - 2016-02-16 10:24:36 --> Severity: Notice  --> Undefined variable: form_data /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/application/views/v_oas037.php 75
+ERROR - 2016-02-16 10:24:36 --> Severity: Notice  --> Undefined variable: form_data /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/application/views/v_oas037.php 76
+ERROR - 2016-02-16 07:01:50 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\www.intranet-cybertrend-intra-com\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 07:07:14 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\www.intranet-cybertrend-intra-com\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 07:09:53 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\www.intranet-cybertrend-intra-com\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 07:13:05 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\COAST\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 07:13:05 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\COAST\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 07:13:16 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\COAST\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 07:13:19 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\COAST\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 08:07:30 --> 404 Page Not Found --> login
+ERROR - 2016-02-16 08:07:34 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\COAST\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:14:41 --> 404 Page Not Found --> COAST
+ERROR - 2016-02-16 10:15:23 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:15:23 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:15:33 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:15:35 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:24:13 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:24:13 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:24:17 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:24:21 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:25:35 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:25:35 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2016-02-16 10:25:36 --> 404 Page Not Found --> favicon.ico

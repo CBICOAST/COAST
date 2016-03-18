@@ -1,0 +1,1 @@
+[11-Sep-2014 06:16:03 America/Denver] PHP Warning:  filesize(): stat failed for http://mirror.internode.on.net/pub/test/10meg.test in /home8/cybertr5/public_html/www.intranet-cybertrend-intra-com/assets/speed_test.php on line 5
