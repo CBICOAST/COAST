@@ -22,7 +22,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input readonly="" style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="" class="form-control holo date_ts" name="periode">
+                    <input readonly="" style="text-align: left; width: 13%;height: 100%;cursor: pointer;" value="" class="form-control holo date_ts" name="periode">
                    
                 </div>
 				<span id="spanId"style="color:red;"></span>
@@ -33,7 +33,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input readonly="" style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="" class="form-control holo date_ts2"  name="expired">
+                    <input readonly="" style="text-align: left; width: 13%;height: 100%;cursor: pointer;" value="" class="form-control holo date_ts2"  name="expired">
                    
                 </div>
 				<span id="spanId"style="color:red;"></span>

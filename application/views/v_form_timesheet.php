@@ -22,7 +22,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input readonly="" style="text-align: left; width: 175px;height: 100%;" value="" class="form-control holo date_ts" id="date_ts" name="date_ts">
+                    <input readonly="" style="text-align: left; width: 13%;height: 100%;cursor: pointer;font-size: 90%;" value="" class="form-control holo date_ts" id="date_ts" name="date_ts">
                     <input type="hidden" name="holiday" id="holiday" />
                 </div>
 				<span id="spanId"style="color:red;"></span>
@@ -70,7 +70,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                     </div>
-                    <input style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="" class="form-control holo" id="hours" name="hours">
+                    <input style="text-align: left; width: 7%;height: 100%;" value="" class="form-control holo" id="hours" name="hours">
                     
                 </div>
 				<span id="spanId"style="color:red;"></span>

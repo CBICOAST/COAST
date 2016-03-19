@@ -719,6 +719,7 @@ function form_save_timesheet(title, url){
                       +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></td></tr>';
                         });
                         $('#table_timesheet tbody').append(trHTML);
+                        $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
                         },
                   error: function(xhr, resp, text) {
@@ -777,6 +778,7 @@ if(dialog === null)
                                     'overlay_opacity': '.75',
                                     'buttons':  [
                                     {caption: 'Save', callback: function() {
+                                    	if($(".date_ts").val().length !== 0 && $(".date_ts2").val().length !== 0){
                                             
             $.ajax({
                     url:'<?php echo base_url(); ?>'+'c_resource_timesheet/generate_new_timesheet',
@@ -793,14 +795,16 @@ if(dialog === null)
                       +'</a></td><td class="text-center"><a class="opt edit" onclick=\"change_page(this,\'c_resource_timesheet/load_timesheet_periode/'+item.date_period+'\')\"></a></td></tr>';
                         });
                         $('#timesheet_periode tbody').append(trHTML); 
-                       
+                        $("#validasi-form").css({'display':'none'});
                             },
                   error: function(xhr, resp, text) {
                   console.log(xhr, resp, text);
                         }
                 });                        
             
-                                            
+                                    	}else{
+                                    		$("#validasi-form").css({'display':'block'});
+                                    		}        
                                     }},
                                     {caption: 'Cancel', callback: function() { form_dialog_close();}}
                 ],
