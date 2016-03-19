@@ -586,6 +586,7 @@ function form_save_timesheet(title, url){
                       +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></td></tr>';
                         });
                         $('#table_timesheet tbody').append(trHTML); 
+                        $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
                             },
                   error: function(xhr, resp, text) {
@@ -593,7 +594,7 @@ function form_save_timesheet(title, url){
                         }
                 });                        
             }else{
-             alert('Data Can\'t be saved (the required data is not complete)');
+             $("#validasi-form").css({'display':'block'});
             }
                                             
                                     }},
@@ -646,7 +647,8 @@ function form_save_timesheet(title, url){
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></td></tr>';
                         });
-                        $('#table_timesheet tbody').append(trHTML); 
+                        $('#table_timesheet tbody').append(trHTML);
+                        $("#validasi-form").css({'display':'none'}); 
                         $('[data-toggle="tooltip"]').tooltip();
                             },
                   error: function(xhr, resp, text) {
@@ -656,7 +658,7 @@ function form_save_timesheet(title, url){
                                     
                                             }else{
 
-                                    alert('Data Can\'t be updated (the required data is not complete)');
+                                            	$("#validasi-form").css({'display':'block'});
                                             }
                                             
                                             }},

@@ -31,7 +31,7 @@
                
     </div>
      <div>
-        <button class="btn btn-primary"  onclick="form_new_timesheet('tes','c_resource_timesheet/form_new_timesheet')"><i class="fa fa-plus-square-o fa-lg"></i> Add Timesheet</button>
+        <button class="btn btn-primary"  onclick="form_new_timesheet('Create New Timesheet Periode','c_resource_timesheet/form_new_timesheet')"><i class="fa fa-plus-square-o fa-lg"></i> Add Timesheet</button>
         </div>
     <table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="timesheet_periode">
                     

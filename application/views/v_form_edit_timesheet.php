@@ -21,7 +21,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input readonly=""  style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" class="form-control holo date_ts" id="date_ts" name="date_ts">
+                    <input readonly=""  style="text-align: left; width: 175px;height: 100%;" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" class="form-control holo date_ts" id="date_ts" name="date_ts">
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" name="date_ts2"/>
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['holiday']; ?>" name="holiday" id="holiday" />
                 </div>

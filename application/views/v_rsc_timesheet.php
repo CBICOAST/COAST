@@ -70,6 +70,7 @@
     </div>
     
 </div>
+		<div class="text-center" id="validasi-form" style="background-color: #FFCCFF;border: 1px solid #ccc;color: red;margin-bottom: 2px;display: none;padding: 6px 6px 6px 6px;">Data Can't be Saved (the required data is not complete)</div>
         <div>
         <button class="btn btn-primary"  onclick="form_save_timesheet('ADD TIMESHEET RECORD', 'c_resource_timesheet/form_timesheet/<?php echo $periode; ?>');"><i class="fa fa-plus-square-o fa-lg"></i> Add Rows</button>
         </div>
