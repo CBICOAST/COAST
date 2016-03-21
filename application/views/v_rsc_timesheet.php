@@ -38,6 +38,7 @@
                         }
                         else{
                             $.each(data, function (i, item) {
+                                
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
