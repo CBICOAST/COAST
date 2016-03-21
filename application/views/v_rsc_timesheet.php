@@ -44,7 +44,7 @@
                       +'</td><td class="text-center">'+item.hours 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
-                      +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></td></tr>';
+                      +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></tr>';
                         });
                         $('#table_timesheet tbody').append(trHTML);
                         $('[data-toggle="tooltip"]').tooltip();
@@ -74,6 +74,7 @@
         <div>
         <button class="btn btn-primary"  onclick="form_save_timesheet('ADD TIMESHEET RECORD', 'c_resource_timesheet/form_timesheet/<?php echo $periode; ?>');"><i class="fa fa-plus-square-o fa-lg"></i> Add Rows</button>
         </div>
+        <form id="send-approve" >
 <table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="table_timesheet">
                     
                 <thead>
@@ -85,7 +86,8 @@
                                 <th class="text-center">Hours</th>
                                 <th class="text-center">Charge Description</th>
                                 <th class="text-center">Activity</th>
-                                <th class="text-center">.:::.</th>
+                                <th class="text-center">Action</th>
+                                
 			</tr>
 		</thead>
                 
@@ -94,6 +96,7 @@
                 </tbody>
                 
                 </table>
+                </form>
         
 <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/load_view');">Back...</button>
 <input type="submit" value="Send For Approval" class="pull-right btn btn-primary" name="submit"/>
