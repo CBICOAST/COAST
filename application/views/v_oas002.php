@@ -576,8 +576,16 @@ function form_save_timesheet(title, url){
                 $('#table_timesheet tbody tr').remove(); 
                     
                     var trHTML = '';
+                    if(data ===0){
+                        $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                        $("#validasi-form").css({'display':'none'});
+                        $('#send').css("display","none");
+                    }
+                    else{
+                    	 var total=0;
                     $.each(data, function (i, item) {
-                        var item_status=item.status=0?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a>':'Already Send';
+                        var item_status=item.status==0?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a>':'Already Send';
+                        var count_status_zero=item.status==0?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
@@ -585,11 +593,18 @@ function form_save_timesheet(title, url){
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+              total +=count_status_zero;
                         });
                         $('#table_timesheet tbody').append(trHTML); 
                         $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
-                            },
+                        if(total<=0){
+							$('#send').css("display","none");
+                            }else{
+                            	$('#send').css("display","block");
+                                }
+                    }
+                        },
                   error: function(xhr, resp, text) {
                   console.log(xhr, resp, text);
                         }
@@ -639,19 +654,35 @@ function form_save_timesheet(title, url){
                 $('#table_timesheet tbody tr').remove(); 
                     
                     var trHTML = '';
+                    if(data ===0){
+                        $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                        $("#validasi-form").css({'display':'none'});
+                        $('#send').css("display","none");
+                    }
+                    else{
+                    	 var total=0;
                     $.each(data, function (i, item) {
+                    	var item_status=item.status==0?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a>':'Already Send';
+                    	var count_status_zero=item.status==0?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
                       +'</td><td class="text-center">'+item.hours 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
-                      +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></td></tr>';
+                      +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+              total +=count_status_zero;
                         });
                         $('#table_timesheet tbody').append(trHTML);
                         $("#validasi-form").css({'display':'none'}); 
                         $('[data-toggle="tooltip"]').tooltip();
-                            },
+                        if(total<=0){
+							$('#send').css("display","none");
+                            }else{
+                            	$('#send').css("display","block");
+                                }
+                    }
+                       },
                   error: function(xhr, resp, text) {
                   console.log(xhr, resp, text);
                         }
@@ -709,20 +740,37 @@ function form_save_timesheet(title, url){
                 },
                 success:function(data){
                     var trHTML = '';
-                        $('#table_timesheet tbody tr').remove(); 
+                    if(data ===0){
+                    	$('#table_timesheet tbody tr').remove(); 
+                        $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                        $("#validasi-form").css({'display':'none'});
+                        $('#send').css("display","none");
+                    }
+                    else{
+                    	 var total=0;
+                    	 $('#table_timesheet tbody tr').remove(); 
                             $.each(data, function (i, item) {
+                            	var item_status=item.status==0?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a>':'Already Send';
+                            	var count_status_zero=item.status==0?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
                       +'</td><td class="text-center">'+item.hours 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
-                      +'</a></td><td class="text-center"><a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a></td></tr>';
+                      +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+              total +=count_status_zero;
                         });
                         $('#table_timesheet tbody').append(trHTML);
                         $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
-                        },
+                        if(total<=0){
+							$('#send').css("display","none");
+                            }else{
+                            	$('#send').css("display","block");
+                                }
+                    }
+                       },
                   error: function(xhr, resp, text) {
                   console.log(xhr, resp, text);
                         }

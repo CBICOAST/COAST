@@ -144,7 +144,16 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
                 'act_code'=>$this->input->post('actcode'),
                 'periode_date'=>$this->input->post('periode_dates')
                 );
-        echo json_encode($this->timesheet->delete_timesheet($data_arr));
+        
+        $hitung=count($this->timesheet->delete_timesheet($data_arr));
+        if($hitung==0){
+        	$data_timesheet=0;
+        }
+        else{
+        	$data_timesheet=$this->timesheet->delete_timesheet($data_arr);
+        }
+         
+        echo json_encode($data_timesheet);
     }
     function generate_new_timesheet(){
        $data_arr[]=array(
