@@ -32,7 +32,7 @@ class M_RESOURCE_TIMESHEET extends CI_Model {
 
 	}
         
-        function list_unfill_timesheet($employee_id){
+        function list_unfill_timesheet(){
             
             $sql = "select distinct 
 DATE_FORMAT(periode_date,'%b %Y ') char_period,
@@ -263,6 +263,32 @@ from tb_m_ts order by periode_date desc";
 
 		return fetchArray($sql, 'all');
              }
+       }
+       function approve_rm($employee_id,$periode){
+       	$ack=0;
+       	$sql="UPDATE tb_r_timesheet SET status=1 WHERE status=0 AND employee_id='$employee_id' AND periode_date='$periode'";
+       	if($this->db->query($sql)){
+       		$ack=1;
+       	}
+       	if($ack==1){
+       		$sql="SELECT
+       		a.employee_id,
+       		a.periode_date,
+       		a.approved_by,
+       		a.date_ts,
+       		a.work_desc,
+       		a.holiday,
+       		a.hours,
+       		a.charge_code,
+       		a.act_code,
+       		c.activity,
+       		b.PROJECT_DESCRIPTION project_desc,
+       		a.status
+       		FROM tb_r_timesheet as a
+       		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
+       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode_date]' and employee_id='$data[employee_id]' order by date_ts asc";
+       		return fetchArray($sql, 'all');
+       	}
        }
 }
 ?>

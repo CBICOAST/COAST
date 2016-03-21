@@ -109,7 +109,7 @@
                 </form>
         
 <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/load_view');">Back...</button>
-<input type="submit" value="Send For Approval" id="send" style="display:none;" class="pull-right btn btn-primary" name="submit"/>
+<input type="submit" value="Send For Approval" id="send" style="display:none;" class="pull-right btn btn-primary" name="submit" onclick="send_timesheet('c_resource_timesheet/approve_rm','SEND ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>')"/>
 <script type="text/javascript">
     
         $(document).ready(function(){

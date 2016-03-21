@@ -44,12 +44,12 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
 
 	function load_view()
 	{
-                $param['periode']=$this->timesheet->list_unfill_timesheet($this->user['id']);
-                $param['employee_name']=$this->user['name'];
+                $param['periode']=$this->timesheet->list_unfill_timesheet();
+               
 		$this->load->view('v_resource_timesheet',$param);
 	}
         function load_timesheet_periode($periode){
-         
+        	$data['employee_id']=$this->user['id'];
             $data['periode']=$periode;
          $this->load->view('v_rsc_timesheet',$data);
          
@@ -165,6 +165,20 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     }
     function form_new_timesheet(){
         $this->load->view('v_new_timesheet_periode');
+    }
+    function approve_rm(){
+    	$employee_id=$this->input->post('employeeid');
+    	$periode=$this->input->post('periode_dates');
+    
+    	$hitung=count($this->timesheet->approve_rm($employee_id,$periode));
+    	if($hitung==0){
+    		$data_timesheet=0;
+    	}
+    	else{
+    		$data_timesheet=$this->timesheet->approve_rm($mployee_id,$periode);
+    	}
+    	 
+    	echo json_encode($data_timesheet);
     }
 }
 
