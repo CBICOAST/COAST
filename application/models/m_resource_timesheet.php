@@ -264,14 +264,14 @@ from tb_m_ts order by periode_date desc";
 		return fetchArray($sql, 'all');
              }
        }
-       function approve_rm($employee_id,$periode){
+       function approve_rm($data){
        	$ack=0;
-       	$sql="UPDATE tb_r_timesheet SET status=1 WHERE status=0 AND employee_id='$employee_id' AND periode_date='$periode'";
+       	$sql="UPDATE tb_r_timesheet SET status=1 WHERE status=0 AND employee_id='$data[employee_id]' AND periode_date='$data[periode]'";
        	if($this->db->query($sql)){
        		$ack=1;
        	}
        	if($ack==1){
-       		$sql="SELECT
+       		$sql2="SELECT
        		a.employee_id,
        		a.periode_date,
        		a.approved_by,
@@ -286,8 +286,8 @@ from tb_m_ts order by periode_date desc";
        		a.status
        		FROM tb_r_timesheet as a
        		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode_date]' and employee_id='$data[employee_id]' order by date_ts asc";
-       		return fetchArray($sql, 'all');
+       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' order by date_ts asc";
+       		return fetchArray($sql2, 'all');
        	}
        }
 }

@@ -813,13 +813,7 @@ function form_save_timesheet(title, url){
                     },
                     success:function(data){
                         var trHTML = '';
-                        if(data ===0){
-                        	$('#table_timesheet tbody tr').remove(); 
-                            $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
-                            $("#validasi-form").css({'display':'none'});
-                            $('#send').css("display","none");
-                        }
-                        else{
+                        
                         	 var total=0;
                         	 $('#table_timesheet tbody tr').remove(); 
                                 $.each(data, function (i, item) {
@@ -842,7 +836,7 @@ function form_save_timesheet(title, url){
                                 }else{
                                 	$('#send').css("display","block");
                                     }
-                        }
+                        
                            },
                       error: function(xhr, resp, text) {
                       console.log(xhr, resp, text);

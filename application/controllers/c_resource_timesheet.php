@@ -167,18 +167,11 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
         $this->load->view('v_new_timesheet_periode');
     }
     function approve_rm(){
-    	$employee_id=$this->input->post('employeeid');
-    	$periode=$this->input->post('periode_dates');
-    
-    	$hitung=count($this->timesheet->approve_rm($employee_id,$periode));
-    	if($hitung==0){
-    		$data_timesheet=0;
-    	}
-    	else{
-    		$data_timesheet=$this->timesheet->approve_rm($mployee_id,$periode);
-    	}
-    	 
-    	echo json_encode($data_timesheet);
+    	$data=array(
+    			'employee_id'=>$this->input->post('employeeid'),
+    			'periode'=>$this->input->post('periode_dates')
+    	);
+    	echo json_encode($this->timesheet->approve_rm($data));
     }
 }
 
