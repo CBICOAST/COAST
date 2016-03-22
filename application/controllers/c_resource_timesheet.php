@@ -34,7 +34,16 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
 		$this->url = empty($index) ? $host : $host . $index . '/';
 
 		$this->load->model('m_resource_timesheet','timesheet');
-		
+		$config = Array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_port' => 465,
+				'smtp_user' => 'dimyatiabisaad@gmail.com',
+				'smtp_pass' => 'b9818qhasvgmail',
+				'mailtype'  => 'html',
+				'charset'   => 'utf-8'
+				);
+		$this->load->library('email', $config);
 	}
 
 	function index()
@@ -171,6 +180,15 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     			'employee_id'=>$this->input->post('employeeid'),
     			'periode'=>$this->input->post('periode_dates')
     	);
+    	foreach ($this->timesheet->get_email_approval($data) as $key => $value){
+    		$this->email->set_newline("\r\n");
+    		$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
+    		$this->email->to($value['email']);
+    		$this->email->subject('Submit Timesheet'.$value['sender_name']);
+    		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> already submit timesheet <br> Please Check by COAS');
+    		$this->email->send();
+    	}
+    	
     	echo json_encode($this->timesheet->approve_rm($data));
     }
 }

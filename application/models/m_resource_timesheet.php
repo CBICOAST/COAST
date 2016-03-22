@@ -290,5 +290,17 @@ from tb_m_ts order by periode_date desc";
        		return fetchArray($sql2, 'all');
        	}
        }
+       function get_email_approval($data){
+       	$sql="select 
+distinct b.USER_EMAIL 'email',
+c.EMPLOYEE_NAME 'reciver_name',
+d.EMPLOYEE_NAME 'sender_name' 
+from tb_r_timesheet  as a 
+left join tb_m_user as b on a.approved_by=b.EMPLOYEE_ID 
+left join tb_m_employee as c on a.approved_by=c.EMPLOYEE_ID 
+left join tb_m_employee as d on a.employee_id=d.EMPLOYEE_ID
+where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' and a.status=0";
+       	return fetchArray($sql, 'all');
+       }
 }
 ?>
