@@ -813,10 +813,16 @@ function form_save_timesheet(title, url){
                     },
                     success:function(data){
                         var trHTML = '';
-                        
+                        if(data.email_status===0){
+							$('#email_success').css('display','none');
+							$('#email_failed').css('display','block');
+                            }else{
+                            	$('#email_success').css('display','block');
+    							$('#email_failed').css('display','none');
+                                }
                         	 var total=0;
                         	 $('#table_timesheet tbody tr').remove(); 
-                                $.each(data, function (i, item) {
+                                $.each(data.data_sheet, function (i, item) {
                                 	var item_status=item.status==0?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a>':'Already Send';
                                 	var count_status_zero=item.status==0?1:0;
                   trHTML +='<tr><td class="text-center">'+item.date_ts

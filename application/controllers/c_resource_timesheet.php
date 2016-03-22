@@ -180,16 +180,28 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     			'employee_id'=>$this->input->post('employeeid'),
     			'periode'=>$this->input->post('periode_dates')
     	);
+    	//$data=array(
+    			//'employee_id'=>'CBI.061.150216',
+    			//'periode'=>'2016-01-01'
+    	//);
+    	$this->email->set_newline("\r\n");
+    	$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
     	foreach ($this->timesheet->get_email_approval($data) as $key => $value){
-    		$this->email->set_newline("\r\n");
-    		$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
     		$this->email->to($value['email']);
     		$this->email->subject('Submit Timesheet'.$value['sender_name']);
     		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> already submit timesheet <br> Please Check by COAS');
-    		$this->email->send();
+    		if($this->email->send()){
+    			$status=1;
+    		}
+    		else{
+    			$status=0;
+    		}
     	}
-    	
-    	echo json_encode($this->timesheet->approve_rm($data));
+    	$after_send=array(
+    			'data_sheet'=>$this->timesheet->approve_rm($data),
+    			'email_status'=>$status
+    	);
+    	echo json_encode($after_send);
     }
 }
 
