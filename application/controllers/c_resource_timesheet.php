@@ -175,6 +175,13 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     function form_new_timesheet(){
         $this->load->view('v_new_timesheet_periode');
     }
+    function tmp_approve_rm($employee_id,$periode){
+    	$data=array(
+    			'employee_id'=>$employee_id,
+    			'periode'=>$periode
+    	);
+    	$this->load->view('v_tmp_approve_rm',$data);
+    }
     function approve_rm(){
     	$data=array(
     			'employee_id'=>$this->input->post('employeeid'),
