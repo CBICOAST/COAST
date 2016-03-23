@@ -574,7 +574,6 @@ function form_save_timesheet(title, url){
                     data:$("#timesheet_form").serialize(),
                     success:function(data) {
                 $('#table_timesheet tbody tr').remove(); 
-                    
                     var trHTML = '';
                     if(data ===0){
                         $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
@@ -786,7 +785,84 @@ function form_save_timesheet(title, url){
                 }
             
         }
-            
+            function send_timesheet(url,title,employee,periode){
+                var url_link=url;
+                var employee_id=employee;
+                var periode_date=periode;
+                if(dialog === null)
+                    {
+                        dialog = $.Zebra_Dialog('Are you sure to send you\'r <strong>ALL TIMESHEET</strong> on periode <strong>'+periode_date+'</strong>?', {
+                                        'type': 'question',
+                                        'overlay_close': false,
+                                        'custom_class':  'form-dialog',
+                                        'title':    title,
+                                        'animation_speed_hide': 50,
+                                        'animation_speed_show': 700,
+                                        'max_height': 550,
+                                        'overlay_opacity': '.75',
+                                        'buttons':  [
+                                        {caption: 'Yes', callback: function() {
+                                                $.ajax({
+                    url:url_link,
+                    type:'POST',
+                    dataType:'json',
+                    data:{
+                        employeeid:employee_id,
+                        periode_dates:periode_date
+                    },
+                    beforeSend: function() {
+                        $('.wait').css('display','block');
+                    },
+                    success:function(data){
+                    	$('.wait').css('display','none');
+                        var trHTML = '';
+                        if(data.email_status<=0){
+                            $('#email_failed').css('display','block');
+                            $('#email_success').css('display','none');
+                            }
+                        else{
+                        	$('#email_failed').css('display','none');
+                            $('#email_success').css('display','block');
+                            }
+                        	 var total=0;
+                        	 $('#table_timesheet tbody tr').remove(); 
+                                $.each(data.data_sheet, function (i, item) {
+                                	var item_status=item.status==0?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"></a>':'Already Send';
+                                	var count_status_zero=item.status==0?1:0;
+                  trHTML +='<tr><td class="text-center">'+item.date_ts
+                          +'</td><td class="text-center">'+item.holiday 
+                          +'</td><td class="text-center">'+item.work_desc 
+                          +'</td><td class="text-center">'+item.hours 
+                          +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
+                          +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
+                          +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+                  total +=count_status_zero;
+                            });
+                            $('#table_timesheet tbody').append(trHTML);
+                            $("#validasi-form").css({'display':'none'});
+                            $('[data-toggle="tooltip"]').tooltip();
+                            if(total<=0){
+    							$('#send').css("display","none");
+                                }else{
+                                	$('#send').css("display","block");
+                                    }
+                        
+                           },
+                      error: function(xhr, resp, text) {
+                      console.log(xhr, resp, text);
+                            }
+                });
+                                        }},
+                                        {caption: 'No', callback: function() { form_dialog_close();}}],
+                                        'width':1000,
+                                        'height':1000,
+                                        'onClose':  function() {
+                                                        form_dialog_close();
+                                                    }
+                                    });
+                    }
+                
+            }
             function form_dialog(title, url,type){
                 if(dialog === null)
                 {
