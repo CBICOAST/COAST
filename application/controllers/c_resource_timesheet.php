@@ -53,26 +53,45 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
 
 	function load_view()
 	{
-                $param['periode']=$this->timesheet->list_unfill_timesheet();
+                $param['periode']=$this->timesheet->list_timesheet_periode();
+                $param['employee_id']=$this->user['id'];
                
 		$this->load->view('v_resource_timesheet',$param);
 	}
-        function load_timesheet_periode($periode){
-        	$data['employee_id']=$this->user['id'];
+        function load_timesheet_periode($periode,$employee,$type){
+        	$data['employee_id']=$employee;
             $data['periode']=$periode;
-         $this->load->view('v_rsc_timesheet',$data);
+            $data['approved_by']=$this->user['id'];
+            if ($type=='rm'){
+         $this->load->view('v_rsc_timesheet_rm',$data);
+            }
+            elseif ($type=='resource'){
+            	$this->load->view('v_rsc_timesheet',$data);
+            }
          
      }
+     
      function load_data(){
-         $hitung=count($this->timesheet->get_timesheet_data($this->user['id'],$this->input->post('periode')));
+         $hitung=count($this->timesheet->get_timesheet_data($this->input->post('employeeid'),$this->input->post('periode')));
          if($hitung==0){
              $data_timesheet=0;
          }
          else{
-             $data_timesheet=$this->timesheet->get_timesheet_data($this->user['id'],$this->input->post('periode'));
+             $data_timesheet=$this->timesheet->get_timesheet_data($this->input->post('employeeid'),$this->input->post('periode'));
          }
          
         echo json_encode($data_timesheet);
+     }
+     function load_data_rm(){
+     	$hitung=count($this->timesheet->get_timesheet_data_rm($this->input->post('employeeid'),$this->input->post('periode')));
+     	if($hitung==0){
+     		$data_timesheet=0;
+     	}
+     	else{
+     		$data_timesheet=$this->timesheet->get_timesheet_data_rm($this->input->post('employeeid'),$this->input->post('periode'));
+     	}
+     	 
+     	echo json_encode($data_timesheet);
      }
      function form_timesheet($periode){
          foreach ($this->timesheet->get_holiday_date($periode) as $key => $value){
@@ -209,6 +228,15 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     			'email_status'=>$status
     	);
     	echo json_encode($after_send);
+    }
+    function approve_rm_periode(){
+    	$param['periode']=$this->timesheet->timesheetlist_resource_send($this->user['id']);
+    	$this->load->view('v_approval_periode',$param);
+    }
+    function approve_rm_emp($employee_id,$periode){
+    	$param['periode']=$this->timesheet->timesheetlist_resource_send($employee_id,$periode);
+    	$param['approve_by']=$this->user['id'];
+    	$this->load->view('v_approval_employee',$param);
     }
 }
 

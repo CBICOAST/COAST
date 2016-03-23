@@ -32,7 +32,7 @@ class M_RESOURCE_TIMESHEET extends CI_Model {
 
 	}
         
-        function list_unfill_timesheet(){
+        function list_timesheet_periode(){
             
             $sql = "select distinct 
 DATE_FORMAT(periode_date,'%b %Y ') char_period,
@@ -41,6 +41,20 @@ from tb_m_ts order by periode_date desc";
 
 		return fetchArray($sql, 'all');
         }
+        function timesheetlist_resource_send($approving,$periode){
+        	$date_periode=isset($periode)?'and a.periode_date='.'\''.$periode.'\'':'';
+        	$approving_by=isset($approving)?'and a.approved_by='.'\''.$approving.'\'':'';
+        	$sql="select distinct 
+DATE_FORMAT(a.periode_date,'%b %Y ') char_period,
+a.periode_date as date_period,
+a.approved_by,
+b.EMPLOYEE_NAME,
+a.employee_id
+from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status=1 ".$approving_by." ".$date_periode;
+        	$sql.=' order by periode_date desc';
+        	return fetchArray($sql, 'all');
+        }
+        
         function get_employee_list($employee_id)
 	{
 		$sql = "SELECT
@@ -185,6 +199,25 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
  left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE 
  left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' order by date_ts";
            return fetchArray($sql, 'all');
+       }
+       function get_timesheet_data_rm($id_employee,$periode){
+       	$sql="SELECT
+       	a.employee_id,
+       	a.periode_date,
+       	a.approved_by,
+       	a.date_ts,
+       	a.work_desc,
+       	a.holiday,
+       	a.hours,
+       	a.charge_code,
+       	a.act_code,
+       	c.activity,
+       	b.PROJECT_DESCRIPTION project_desc,
+       	a.status
+       	FROM tb_r_timesheet as a
+       	left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
+       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status<>0 order by date_ts";
+       	return fetchArray($sql, 'all');
        }
        function get_timesheet_edit_data($id_employee,$periode,$date,$chargecode,$act_code){
            $sql="SELECT * FROM tb_r_timesheet where employee_id='$id_employee' and periode_date='$periode' and date_ts='$date' and charge_code='$chargecode' and act_code='$act_code'";

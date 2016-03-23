@@ -6,7 +6,7 @@
 * Client Name      : CBI - Pak Riza
 * Program Id       : RESOURCE_TIMESHEET
 * Program Name     : List Timesheet
-* Description      : Daftar Timesheet yang belum terisi oleh resource
+* Description      : Daftar Timesheet yang akan terisi oleh resource
 * Environment      : PHP 5.4.4
 * Author           : Abi Sa'ad Dimyati
 * Version          : 01.00.00
@@ -50,8 +50,8 @@
                         $idx++;
                         echo "<tr class='Approved'>";
                         echo "<td class='text-center'>".$idx."</td>";
-                        echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."')\">Timesheet Periode ".$value['char_period']."</a></td>";
-                        echo "<td class=\"text-center\"><a href=\"#\" class=\"opt edit\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."')\"></a></td>";
+                        echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."/resource')\">Timesheet Periode ".$value['char_period']."</a></td>";
+                        echo "<td class=\"text-center\"><a href=\"#\" class=\"opt edit\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."')\"></a></td>";
                         echo "</tr>";
      }
                     

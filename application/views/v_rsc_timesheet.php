@@ -1,18 +1,22 @@
-
-<?php
-//echo"<pre>";
-//foreach ($employee_names as $key => $value) {
-    //echo $value['EMPLOYEE_NAME']."<br/>"; 
-//}
-//echo"</pre>";
-
-
-
-//echo"<pre>";
-//foreach ($act_code as $key => $value) {
-    //echo $value['act_code']."|".$value['activity']."<br/>"; 
-//}
-//echo"</pre>";
+<?php 
+/************************************************************************************************
+ * Program History :
+*
+* Project Name     : OAS
+* Client Name      : CBI - Pak Riza
+* Program Id       : RSC_TIMESHEET
+* Program Name     : List Timesheet
+* Description      : Halaman Pengisian Timeshet
+* Environment      : PHP 5.4.4
+* Author           : Abi Sa'ad Dimyati
+* Version          : 01.00.00
+* Creation Date    : 07-03-2016 11:10:00
+*
+* Update history     Re-fix date       Person in charge      Description
+* 
+*
+* Copyright(C) [..]. All Rights Reserved
+*************************************************************************************************/
 ?>
 
  <!-- Latest compiled and minified CSS -->
@@ -30,7 +34,10 @@
                     url:'<?php echo base_url(); ?>'+'c_resource_timesheet/load_data/',
                     type:'POST',
                     dataType:'json',
-                    data:{periode:'<?php echo $periode; ?>'},
+                    data:{
+                        periode:'<?php echo $periode; ?>',
+                        employeeid:'<?php echo $employee_id; ?>'
+                        },
                     success:function(data){
                     var trHTML = '';
                         if(data ===0){

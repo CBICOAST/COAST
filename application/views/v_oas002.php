@@ -161,10 +161,15 @@ $dev_mode = false;
                                                 if($this_posisi!='FA' && $this_posisi!='HRGA' && $this_posisi!='OPERATION')
                                                     {
                                                        echo"<li>";
-                                                       echo"<a href=\"#\" id=\"caltab\" url=\"c_resource_timesheet/load_view\" tabtitle=\"Unfilled Timesheet\">";
+                                                       echo"<a href=\"#\" id=\"timesheettab\" url=\"c_resource_timesheet/load_view\" tabtitle=\"Timesheet\">";
                                                        echo"<i class=\"fa fa-clock-o\"></i> <span>Timesheet</span>";
                                                        echo"</a>";
-                                                       echo"</li>";    
+                                                       echo"</li>";
+                                                       echo"<li>";
+                                                       echo"<a href=\"#\" id=\"approvaltab\" url=\"c_resource_timesheet/approve_rm_periode\" tabtitle=\"Approval Timesheet\">";
+                                                       echo"<i class=\"fa fa-clock-o\"></i> <span>Approval Timesheet</span>";
+                                                       echo"</a>";
+                                                       echo"</li>";
                                                      }
                                                 if($this_posisi!='FA' && $this_posisi!='HRGA' && $this_posisi!='OPERATION')
                                                     {
@@ -359,8 +364,8 @@ $dev_mode = false;
         <!-- Zebra Dialog -->
         <script type="text/javascript" src="<?php echo js_url();?>plugins/zebra_dialog/zebra_dialog.js"></script>
         <!-- Bootstrap -->
-        <!--  <script src="<?php echo js_url();?>bootstrap.min.js" type="text/javascript"></script> -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+          <script src="<?php echo js_url();?>bootstrap.min.js" type="text/javascript"></script> 
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
         
         <script type="text/javascript" src="<?php echo js_url();?>plugins/select2/select2.min.js"></script>
         <!-- Morris.js charts -->
