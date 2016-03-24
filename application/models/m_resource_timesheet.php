@@ -200,7 +200,7 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
  left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' order by date_ts";
            return fetchArray($sql, 'all');
        }
-       function get_timesheet_data_rm($id_employee,$periode){
+       function get_timesheet_data_rm($id_employee,$periode,$approve){
        	$sql="SELECT
        	a.employee_id,
        	a.periode_date,
@@ -216,7 +216,7 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
        	a.status
        	FROM tb_r_timesheet as a
        	left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status<>0 order by date_ts";
+       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status<>0 and a.approved_by='$approve' order by date_ts";
        	return fetchArray($sql, 'all');
        }
        function get_timesheet_edit_data($id_employee,$periode,$date,$chargecode,$act_code){

@@ -83,12 +83,12 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
         echo json_encode($data_timesheet);
      }
      function load_data_rm(){
-     	$hitung=count($this->timesheet->get_timesheet_data_rm($this->input->post('employeeid'),$this->input->post('periode')));
+     	$hitung=count($this->timesheet->get_timesheet_data_rm($this->input->post('employeeid'),$this->input->post('periode'),$this->input->post('approvedby')));
      	if($hitung==0){
      		$data_timesheet=0;
      	}
      	else{
-     		$data_timesheet=$this->timesheet->get_timesheet_data_rm($this->input->post('employeeid'),$this->input->post('periode'));
+     		$data_timesheet=$this->timesheet->get_timesheet_data_rm($this->input->post('employeeid'),$this->input->post('periode'),$this->input->post('approvedby'));
      	}
      	 
      	echo json_encode($data_timesheet);
@@ -194,13 +194,7 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     function form_new_timesheet(){
         $this->load->view('v_new_timesheet_periode');
     }
-    function tmp_approve_rm($employee_id,$periode){
-    	$data=array(
-    			'employee_id'=>$employee_id,
-    			'periode'=>$periode
-    	);
-    	$this->load->view('v_tmp_approve_rm',$data);
-    }
+    
     function approve_rm(){
     	$data=array(
     			'employee_id'=>$this->input->post('employeeid'),
