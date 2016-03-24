@@ -206,7 +206,7 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	//);
     	$this->email->set_newline("\r\n");
     	$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
-    	foreach ($this->timesheet->get_email_approval($data) as $key => $value){
+    	foreach ($this->timesheet->get_email_approval_rm($data) as $key => $value){
     		$this->email->to($value['email']);
     		$this->email->subject('Submit Timesheet'.$value['sender_name']);
     		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> already submit timesheet <br> Please Check by COAS');
@@ -219,6 +219,35 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	}
     	$after_send=array(
     			'data_sheet'=>$this->timesheet->approve_rm($data),
+    			'email_status'=>$status
+    	);
+    	echo json_encode($after_send);
+    }
+    function approve_pmo(){
+    	$data=array(
+    			'employee_id'=>$this->input->post('employeeid'),
+    			'periode'=>$this->input->post('periode_dates'),
+    			'approvedby'=>$this->input->post('approved_by')
+    	);
+    	//$data=array(
+    	//'employee_id'=>'CBI.061.150216',
+    	//'periode'=>'2016-01-01'
+    	//);
+    	$this->email->set_newline("\r\n");
+    	$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
+    	$this->email->to('abi.dimyati@cybertrend-intra.net');
+    	foreach ($this->timesheet->get_email_approval_pmo($data) as $key => $value){
+    		$this->email->subject('Submit Timesheet '.$value['resource']);
+    		$this->email->message('Dear PMO <br> <b>'.$value['rm'].'</b> already submit timesheet <b>'.$value['resource'].'</b><br> Please Check by COAS');
+    	}
+    	if($this->email->send()){
+    		$status=1;
+    	}
+    	else{
+    		$status=0;
+    	}
+    	$after_send=array(
+    			'data_sheet'=>$this->timesheet->approve_pmo($data),
     			'email_status'=>$status
     	);
     	echo json_encode($after_send);

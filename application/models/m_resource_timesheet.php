@@ -216,7 +216,7 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
        	a.status
        	FROM tb_r_timesheet as a
        	left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status<>0 and a.approved_by='$approve' order by date_ts";
+       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status=1 and a.approved_by='$approve' order by date_ts";
        	return fetchArray($sql, 'all');
        }
        function get_timesheet_edit_data($id_employee,$periode,$date,$chargecode,$act_code){
@@ -323,7 +323,33 @@ from tb_m_ts order by periode_date desc";
        		return fetchArray($sql2, 'all');
        	}
        }
-       function get_email_approval($data){
+       function approve_pmo($data){
+       	$ack=0;
+       	$sql="UPDATE tb_r_timesheet SET status=2 WHERE status=1 AND employee_id='$data[employee_id]' AND periode_date='$data[periode]' AND approved_by='$data[approvedby]'";
+       	if($this->db->query($sql)){
+       		$ack=1;
+       	}
+       	if($ack==1){
+       		$sql2="SELECT
+       		a.employee_id,
+       		a.periode_date,
+       		a.approved_by,
+       		a.date_ts,
+       		a.work_desc,
+       		a.holiday,
+       		a.hours,
+       		a.charge_code,
+       		a.act_code,
+       		c.activity,
+       		b.PROJECT_DESCRIPTION project_desc,
+       		a.status
+       		FROM tb_r_timesheet as a
+       		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
+       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' AND approved_by='$data[approvedby]' order by date_ts asc";
+       		return fetchArray($sql2, 'all');
+       	}
+       }
+       function get_email_approval_rm($data){
        	$sql="select 
 distinct b.USER_EMAIL 'email',
 c.EMPLOYEE_NAME 'reciver_name',
@@ -333,6 +359,16 @@ left join tb_m_user as b on a.approved_by=b.EMPLOYEE_ID
 left join tb_m_employee as c on a.approved_by=c.EMPLOYEE_ID 
 left join tb_m_employee as d on a.employee_id=d.EMPLOYEE_ID
 where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' and a.status=0";
+       	return fetchArray($sql, 'all');
+       }
+       function get_email_approval_pmo($data){
+       	$sql="select	distinct
+       	c.EMPLOYEE_NAME 'rm',
+       	d.EMPLOYEE_NAME 'resource'
+       	from tb_r_timesheet  as a
+       	left join tb_m_employee as c on a.approved_by=c.EMPLOYEE_ID
+       	left join tb_m_employee as d on a.employee_id=d.EMPLOYEE_ID
+       	where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' and a.approved_by='$data[approvedby]' and a.status=1";
        	return fetchArray($sql, 'all');
        }
 }
