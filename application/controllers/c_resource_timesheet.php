@@ -110,10 +110,11 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
         );
          $this->load->view('v_form_timesheet',$data_array);
      }
-     function form_edit_timesheet($periode,$date_tes,$charge_code,$employee_id,$act_code){
+     function form_edit_timesheet($periode,$date_tes,$charge_code,$employee_id,$act_code,$st_approve){
          foreach ($this->timesheet->get_holiday_date($periode) as $key => $value){
              $data[]=$value['holiday_date'];
         }
+        $status_approve=!isset($st_approve)?0:$st_approve;
          $data_array=array(
              'employee_id'=>$this->user['id'],
              'max_date'=>$this->timesheet->get_max_min($periode)[0]['max_date'],
@@ -122,7 +123,8 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
              'employee_names'=>$this->timesheet->get_employee_list($this->user['id']),
              'charge_code'=>$this->timesheet->get_chargecode_list(),
              'act_code'=>$this->timesheet->get_activity_code(),
-             'edit_data_timesheet'=>$this->timesheet->get_timesheet_edit_data($employee_id,$periode,$date_tes,$charge_code,$act_code)
+             'edit_data_timesheet'=>$this->timesheet->get_timesheet_edit_data($employee_id,$periode,$date_tes,$charge_code,$act_code),
+         	 'st_approve'=>$status_approve
         );
          $this->load->view('v_form_edit_timesheet',$data_array);
      }

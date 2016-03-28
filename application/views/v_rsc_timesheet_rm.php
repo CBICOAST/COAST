@@ -73,7 +73,7 @@
                     	 var total=0;
                     	 $('#table_timesheet tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
-                            	var item_status=item.status==1?'Need Approve':'Already Send';
+                            	var item_status=item.status==1?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"></a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -128,7 +128,7 @@
                         else{
                             var total=0;
                             $.each(data, function (i, item) {
-                            	var item_status=item.status==1?'Need Approve':'Already Send';
+                            	var item_status=item.status==1?'<a class="opt delete" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"></a> <a class="opt edit" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"></a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 

@@ -56,6 +56,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-check"></i>
                     </div>
+                    <?php if ($st_approve==0){ ?>
                     <select name="approved[]"  data-placeholder="Choose Your Approval" id="charge" class="select_charge select_charge1 pull-right" style="width: 300px">
                                 <option value=""></option>
                                 <?php foreach ($employee_names as $key =>$value){
@@ -67,6 +68,10 @@
                                     }
                                 } ?>
                     </select>
+                    <?php } else {?>
+                    <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" class="form-control holo">
+                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" name="employee_id"/>
+                    <?php }?>
                 </div>
 				<span id="spanId"style="color:red;"></span>
             </div>
