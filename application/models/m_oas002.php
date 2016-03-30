@@ -88,6 +88,13 @@ class M_OAS002 extends CI_Model {
 				WHERE
 							empl.EMPLOYEE_ID = usr.EMPLOYEE_ID AND
 							usr.EMPLOYEE_ID = '$data[this_id]') adminid,
+							
+				(CASE menu.MENU_ID WHEN '3010' THEN 
+			              (SELECT count(ts.APPROVED_BY) FROM tb_r_timesheet ts, tb_m_user usr
+			              WHERE ts.APPROVED_BY = usr.EMPLOYEE_ID AND 
+			              usr.EMPLOYEE_ID = '$data[this_id]' AND ts.STATUS = 2 GROUP BY ts.APPROVED_BY) 
+			              ELSE 0 END) ts_approval,
+				
 				(SELECT 
 						mp.EMPLOYEE_ID
 				FROM 
@@ -98,6 +105,13 @@ class M_OAS002 extends CI_Model {
 						mp.EMPLOYEE_ID = em.EMPLOYEE_ID AND
                         us.EMPLOYEE_ID = mp.EMPLOYEE_ID AND
 						mp.APPROVAL_FOR = '0') superAdmin,
+						
+				(CASE menu.PRIV_CA WHEN '5' THEN 
+              	(SELECT count(ts.APPROVED_BY) FROM tb_r_timesheet ts, tb_m_user usr
+              	WHERE ts.APPROVED_BY = usr.EMPLOYEE_ID AND 
+              	usr.EMPLOYEE_ID = '$data[this_id]' AND ts.STATUS = 1 GROUP BY ts.APPROVED_BY)
+              	ELSE 0 END) count_ts_approval,
+              
 							menu.*
 							
 				FROM
@@ -109,8 +123,9 @@ class M_OAS002 extends CI_Model {
 							menu.MENU_ID = priv.MENU_ID  AND
 							priv.USER_GROUP_ID = '$data[this_group]'  AND
 							priv.ALLOW = '1'  
+							HAVING count_ts_approval IS NOT null
 				ORDER BY
-							menu.MENU_ORDER ASC ";
+							menu.MENU_ORDER, menu.MENU_ID ASC ";
 		return fetchArray($sql, 'all');
 	}
 	

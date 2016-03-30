@@ -165,11 +165,6 @@ $dev_mode = false;
                                                        echo"<i class=\"fa fa-clock-o\"></i> <span>Timesheet</span>";
                                                        echo"</a>";
                                                        echo"</li>";
-                                                       echo"<li>";
-                                                       echo"<a href=\"#\" id=\"approvaltab\" url=\"c_resource_timesheet/approve_rm_periode\" tabtitle=\"Approval Timesheet\">";
-                                                       echo"<i class=\"fa fa-clock-o\"></i> <span>Approval Timesheet</span>";
-                                                       echo"</a>";
-                                                       echo"</li>";
                                                      }
                                                 if($this_posisi!='FA' && $this_posisi!='HRGA' && $this_posisi!='OPERATION')
                                                     {
@@ -296,6 +291,15 @@ $dev_mode = false;
 										
 									<?php }
 									elseif( $menu['privi_pr'] == '0' && $menu['TYPE']=='2'  && $menu['PRIV_CA']=='0' ){?>
+										<li class="subtitle">
+											<a href="#" id="tab-side<?= $menu['MENU_ID']?>" url="<?= $menu['URL'] ?>" tabtitle="<?= $menu['MENU_TITLE'] ?>">
+												<i class="<?= $menu['MENU_ICON'] ?>"></i></i> <span><?= $menu['MENU_TITLE'] ?></span>
+											</a>
+										</li>
+										
+									<?php }
+									
+									elseif( $menu['privi_pr'] == '0' && $menu['TYPE']=='2'  && $menu['PRIV_CA']=='5' ){?>
 										<li class="subtitle">
 											<a href="#" id="tab-side<?= $menu['MENU_ID']?>" url="<?= $menu['URL'] ?>" tabtitle="<?= $menu['MENU_TITLE'] ?>">
 												<i class="<?= $menu['MENU_ICON'] ?>"></i></i> <span><?= $menu['MENU_TITLE'] ?></span>
