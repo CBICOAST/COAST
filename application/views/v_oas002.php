@@ -57,6 +57,8 @@ $dev_mode = false;
         
         <!-- datepick -->
         <link href="<?php echo css_url();?>datepick/jquery.datepick.css" rel="stylesheet" type="text/css" />
+        <!-- Awesome Checkbox -->
+        <link href="<?php echo css_url();?>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" type="text/css" />
         
         <!-- Theme style -->
         <link href="<?php echo css_url();?>AdminLTE.css" rel="stylesheet" type="text/css" />
