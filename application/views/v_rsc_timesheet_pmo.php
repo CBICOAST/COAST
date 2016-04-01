@@ -29,7 +29,7 @@
        
         <link rel="stylesheet" href="<?php echo js_url(); ?>plugins/datepicker/datepicker3.css">
         <script type="text/javascript">
-        function send_timesheet(url,title,employee,periode){
+        function send_timesheet(url,title,employee,periode,approve){
             var url_link=url;
             var employee_id=employee;
             var periode_date=periode;
@@ -52,7 +52,9 @@
                 dataType:'json',
                 data:{
                     employeeid:employee_id,
-                    periode_dates:periode_date
+                    periode_dates:periode_date,
+                    approved_by:approve
+                    
                 },
                 beforeSend: function() {
                     $('.wait').css('display','block');
@@ -69,10 +71,10 @@
                         $('#email_success').css('display','block');
                         }
                     	 var total=0;
-                    	 $('#table_timesheet tbody tr').remove(); 
+                    	 $('#table_timesheet_pmo tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
-                            	var item_status=item.status==0?'<button class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</button> &nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></button>':'Already Send';
-                            	var count_status_zero=item.status==0?1:0;
+                            	var item_status=item.status==2?'<button class="btn btn-success" onclick=\"send_timesheet_rm(\'c_resource_timesheet/approve_pmo\',\'APPROVE ALL TIMESHEET\',\''+item.employee_id+'\',\''+item.create_date+'\',\''+item.approved_by+'\')\"><i class="fa fa-check"></i>Approve</button>&nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</button>':'Already Approved';
+                            	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
@@ -82,13 +84,13 @@
                       +'</a></td><td class="text-center">'+item_status+'</td></tr>';
               total +=count_status_zero;
                         });
-                        $('#table_timesheet tbody').append(trHTML);
+                        $('#table_timesheet_pmo tbody').append(trHTML);
                         $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
                         if(total<=0){
-        					$('#send').css("display","none");
+        					$('#approve_pmo').css("display","none");
                             }else{
-                            	$('#send').css("display","block");
+                            	$('#approve_pmo').css("display","block");
                                 }
                     
                        },
@@ -109,24 +111,25 @@
         }
         $(document).ready(function (){
             $.ajax({
-                    url:'<?php echo base_url(); ?>'+'c_resource_timesheet/load_data/',
+                    url:'<?php echo base_url(); ?>'+'c_resource_timesheet/load_data_pmo/',
                     type:'POST',
                     dataType:'json',
                     data:{
                         periode:'<?php echo $periode; ?>',
-                        employeeid:'<?php echo $employee_id; ?>'
+                        employeeid:'<?php echo $employee_id; ?>',
+                        approvedby:'<?php echo $approved_by;?>'
                         },
                     success:function(data){
                     var trHTML = '';
                         if(data ===0){
-                            $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                            $('#table_timesheet_pmo tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
                             $('#send').css("display","none");
                         }
                         else{
                             var total=0;
                             $.each(data, function (i, item) {
-                            	var item_status=item.status==0?'<button class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</button>&nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></button>':'Already Send';
-                            	var count_status_zero=item.status==0?1:0;
+                            	var item_status=item.status==2?'<button class="btn btn-success" onclick=\"send_timesheet_rm(\'c_resource_timesheet/approve_pmo\',\'APPROVE ALL TIMESHEET\',\''+item.employee_id+'\',\''+item.create_date+'\',\''+item.approved_by+'\')\"><i class="fa fa-check"></i>Approve</button>&nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</button>':'Already Approved';
+                            	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
@@ -136,12 +139,14 @@
                       +'</a></td><td class="text-center">'+item_status+'</td></tr>';
               total +=count_status_zero
                         });
-                        $('#table_timesheet tbody').append(trHTML);
+                        $('#table_timesheet_pmo tbody').append(trHTML);
                         $('[data-toggle="tooltip"]').tooltip();
                         if(total<=0){
-							$('#send').css("display","none");
+							$('#approve_pmo').css("display","none");
+							$('#send-back').css("display","none");
                             }else{
-                            	$('#send').css("display","block");
+                            	$('#approve_pmo').css("display","block");
+                            	$('#send-back').css("display","block");
                                 }
                         }
                         },
@@ -154,7 +159,7 @@
         </script>
         <div class="box-content no-padding">
     <div class="search-fields bs-callout list-title">
-		<h2><b>Form Timesheet</b></h2>
+		<h2><b>Check Timesheet</b></h2>
 		<div style="height:100%;
 					
 					padding-top: 10px;
@@ -170,10 +175,10 @@
 		<div class="text-center" id="email_success" style="background-color: #dff0d8;border: 1px solid #ccc;color:#3c763d ;margin-bottom: 2px;display: none;padding: 6px 6px 6px 6px;">Email Notification Already Send to approval</div>
         <div class="wait text-center" style="display:none;background-color: #fcf8e3;color: #8a6d3b;border: 1px solid #ccc;padding: 6px 6px 6px 6px;">Wait...</div>
         <div>
-        <button class="btn btn-primary"  onclick="form_save_timesheet('ADD TIMESHEET RECORD', 'c_resource_timesheet/form_timesheet/<?php echo $periode; ?>');"><i class="fa fa-plus-square-o fa-lg"></i> Add Rows</button>
+        
         </div>
-        <form id="send-approve" >
-<table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="table_timesheet">
+        
+<table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="table_timesheet_pmo">
                     
                 <thead>
 			<tr>
@@ -194,52 +199,10 @@
                 </tbody>
                 
                 </table>
-                </form>
+                
         
-<button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/load_view');">Back...</button>
-<button   id="send" style="display:none;" class="pull-right btn btn-success" name="button" onclick="send_timesheet('c_resource_timesheet/approve_rm','SEND ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>')"><i class="fa fa-check-square-o"></i>Send For Approval</button>
-<script type="text/javascript">
 
-        $(document).ready(function(){
-            var mindate='<?php echo $min_date; ?>';
-            var maxdate='<?php echo $max_date; ?>';
-            var active_dates = <?php echo $holiday_date; ?>;
-            
-        $('.date_ts').datepicker({
-                format: "yyyy-mm-dd",
-                startDate: mindate,
-                endDate: maxdate, 
-                autoclose: true,
-                beforeShowDay: function(date){
-         var d = date;
-         var curr_date = d.getDate();
-         var curr_month = d.getMonth() + 1; //Months are zero based
-         var curr_year = d.getFullYear();
-         var formattedDate = curr_year + "-" + curr_month + "-" + curr_date;
+<button type="button"  id="approve_pmo" style="display:none;" class="pull-right btn btn-success" name="submit" onclick="send_timesheet('c_resource_timesheet/approve_pmo_accepted','APPROVE ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>','<?php echo $approved_by; ?>')"><i class="fa fa-check-square-o"></i>Approve All</button>
 
-           if ($.inArray(formattedDate, active_dates) !== -1){
-               return {
-                  classes: 'activeClassdt'
-               };
-           }
-          return;
-      }
-            });
-            var charcode = <?php echo $charge_code; ?>;
-            var actcode = <?php echo $act_code; ?>;
-            
-            $(".select_charge").select2({
-                data:charcode
-            });
-            $(".select_act").select2({
-                data:actcode
-            });
-            $(".select_charge1").change(function() {
-               var approvedby=$(".select_charge1").val();
-            $(".approved_by1").val(approvedby);
-            });
-           
-        });
-        
-        </script>
+
         

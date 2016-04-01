@@ -50,8 +50,8 @@
                         $idx++;
                         echo "<tr class='Approved'>";
                         echo "<td class='text-center'>".$idx."</td>";
-                        echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."/resource')\">Timesheet Periode ".$value['char_period']."</a></td>";
-                        echo "<td class=\"text-center\"><a href=\"#\" class=\"opt edit\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."')\"></a></td>";
+                        echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."/resource')\"><b>".$value['char_period']."</b></a></td>";
+                        echo "<td class=\"text-center\"><a href=\"#\" class=\"opt edit\" title=\"Detail\" onclick=\"form_new_timesheet('Create New Timesheet Periode','c_resource_timesheet/form_new_timesheet')\"></a></td>";
                         echo "</tr>";
      }
                     

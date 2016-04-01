@@ -35,7 +35,7 @@ class M_RESOURCE_TIMESHEET extends CI_Model {
         function list_timesheet_periode(){
             
             $sql = "select distinct 
-DATE_FORMAT(periode_date,'%b %Y ') char_period,
+DATE_FORMAT(periode_date,'%M %Y ') char_period,
 periode_date as date_period 
 from tb_m_ts order by periode_date desc";	
 
@@ -45,16 +45,47 @@ from tb_m_ts order by periode_date desc";
         	$date_periode=isset($periode)?'and a.periode_date='.'\''.$periode.'\'':'';
         	$approving_by=isset($approving)?'and a.approved_by='.'\''.$approving.'\'':'';
         	$sql="select distinct 
-DATE_FORMAT(a.periode_date,'%b %Y ') char_period,
+DATE_FORMAT(a.periode_date,'%M %Y ') char_period,
 a.periode_date as date_period,
 a.approved_by,
 b.EMPLOYEE_NAME,
 a.employee_id
-from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status=1 ".$approving_by." ".$date_periode;
+from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status<>0 ".$approving_by." ".$date_periode;
         	$sql.=' order by periode_date desc';
         	return fetchArray($sql, 'all');
         }
-        
+        function timesheetlist_resource_send_pmo($periode){
+        	$date_periode=isset($periode)?'and a.periode_date='.'\''.$periode.'\'':'';
+        	$sql="select distinct
+DATE_FORMAT(a.periode_date,'%M %Y ') char_period,
+a.periode_date as date_period,
+a.approved_by,
+b.EMPLOYEE_NAME,
+a.employee_id
+from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status not in ('0','1') ".$date_periode;
+        	$sql.=' order by periode_date desc';
+        	return fetchArray($sql, 'all');
+        }
+        function timesheetlist_resource_send_periode($approving,$periode){
+        	$date_periode=isset($periode)?'and a.periode_date='.'\''.$periode.'\'':'';
+        	$approving_by=isset($approving)?'and a.approved_by='.'\''.$approving.'\'':'';
+        	$sql="select distinct
+DATE_FORMAT(a.periode_date,'%M %Y ') char_period,
+a.periode_date as date_period,
+a.approved_by
+from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status<>0 ".$approving_by." ".$date_periode;
+        	$sql.=' order by periode_date desc';
+        	return fetchArray($sql, 'all');
+        }
+        function timesheetlist_resource_send_periode_pmo(){
+        	$sql="select distinct
+DATE_FORMAT(a.periode_date,'%M %Y ') char_period,
+a.periode_date as date_period,
+a.approved_by
+from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status not in ('0','1') ";
+        	$sql.=' order by periode_date desc';
+        	return fetchArray($sql, 'all');
+        }
         function get_employee_list($employee_id)
 	{
 		$sql = "SELECT
@@ -113,6 +144,10 @@ FROM
 WHERE '$tanggal' + INTERVAL a + b DAY  <  Date_add('$tanggal',INTERVAL 1 MONTH)
 ORDER BY a + b) as tgl";
           return fetchArray($sql, 'all');
+       }
+       function max_periode(){
+       	$sql="SELECT DATE_ADD(max(PERIODE_DATE), INTERVAL 1 MONTH) max_periode,DATE_ADD(DATE_ADD(DATE_ADD(max(PERIODE_DATE), INTERVAL 1 MONTH), INTERVAL 1 MONTH), INTERVAL -1 DAY) end_date FROM tb_m_ts";
+       	return fetchArray($sql, 'all');
        }
        function get_holiday_date($date){
            $sql="SELECT date_format(tgl.Fulldate,'%Y-%c-%e') holiday_date FROM (SELECT '$date' + INTERVAL a + b DAY Fulldate, Dayname('$date' + INTERVAL a + b DAY) Dayname,
@@ -202,6 +237,7 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
        }
        function get_timesheet_data_rm($id_employee,$periode,$approve){
        	$sql="SELECT
+       	a.create_date,
        	a.employee_id,
        	a.periode_date,
        	a.approved_by,
@@ -216,7 +252,26 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
        	a.status
        	FROM tb_r_timesheet as a
        	left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status=1 and a.approved_by='$approve' order by date_ts";
+       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status<>0 and a.approved_by='$approve' order by date_ts";
+       	return fetchArray($sql, 'all');
+       }
+       function get_timesheet_data_pmo($id_employee,$periode){
+       	$sql="SELECT
+       	a.employee_id,
+       	a.periode_date,
+       	a.approved_by,
+       	a.date_ts,
+       	a.work_desc,
+       	a.holiday,
+       	a.hours,
+       	a.charge_code,
+       	a.act_code,
+       	c.activity,
+       	b.PROJECT_DESCRIPTION project_desc,
+       	a.status
+       	FROM tb_r_timesheet as a
+       	left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
+       	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status not in ('0','1') order by date_ts";
        	return fetchArray($sql, 'all');
        }
        function get_timesheet_edit_data($id_employee,$periode,$date,$chargecode,$act_code){
@@ -345,7 +400,33 @@ from tb_m_ts order by periode_date desc";
        		a.status
        		FROM tb_r_timesheet as a
        		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' AND approved_by='$data[approvedby]' order by date_ts asc";
+       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' AND approved_by='$data[approvedby]' AND a.status IN ('1','2','3') order by date_ts asc";
+       		return fetchArray($sql2, 'all');
+       	}
+       }
+       function approve_pmo_accepted($data){
+       	$ack=0;
+       	$sql="UPDATE tb_r_timesheet SET status=3 WHERE status=2 AND employee_id='$data[employee_id]' AND periode_date='$data[periode]' ";
+       	if($this->db->query($sql)){
+       		$ack=1;
+       	}
+       	if($ack==1){
+       		$sql2="SELECT
+       		a.employee_id,
+       		a.periode_date,
+       		a.approved_by,
+       		a.date_ts,
+       		a.work_desc,
+       		a.holiday,
+       		a.hours,
+       		a.charge_code,
+       		a.act_code,
+       		c.activity,
+       		b.PROJECT_DESCRIPTION project_desc,
+       		a.status
+       		FROM tb_r_timesheet as a
+       		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
+       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' AND a.status IN ('2','3') order by date_ts asc";
        		return fetchArray($sql2, 'all');
        	}
        }

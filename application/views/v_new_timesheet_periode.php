@@ -43,6 +43,7 @@
     </div>
 </div>
 <script type="text/javascript">
+
 $(document).ready(function(){
     
 //    $('.date_ts').change(function(){
@@ -72,12 +73,22 @@ $(document).ready(function(){
 //var d = new Date();
 //var currMonth = d.getMonth();
 //var currYear = d.getFullYear();
-//var startDate = new Date(currYear,currMonth,firstDayOfMonth());   
-        $('.date_ts').datepicker({format: "yyyy-mm-dd",
-    viewMode: "months", 
-    minViewMode: "months"});
+//var startDate = new Date(currYear,currMonth,firstDayOfMonth());  
+$.get( "c_resource_timesheet/max_periode", function( data ) {
+ 
+ $('.date_ts').datepicker({format: "yyyy-mm-dd",
+	    viewMode: "months", 
+	    minViewMode: "months",
+	    startDate:data[0].max_periode
+	    });
+ $('.date_ts2').datepicker({
+     format: "yyyy-mm-dd",
+     startDate:data[0].max_periode
+         });
+}, "json" );
+        
             
 
             });
-            $('.date_ts2').datepicker({format: "yyyy-mm-dd"});
+            
 </script>

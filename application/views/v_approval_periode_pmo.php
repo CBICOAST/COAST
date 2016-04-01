@@ -6,7 +6,7 @@
 * Client Name      : CBI - Pak Riza
 * Program Id       : APPROVAL_PERIODE
 * Program Name     : List Timesheet
-* Description      : Halaman Daftar Timesheet per-employee Yang diajukan oleh resource untuk disetujui
+* Description      : Halaman Daftar Timesheet per-Periode Yang diajukan oleh resource untuk disetujui
 * Environment      : PHP 5.4.4
 * Author           : Abi Sa'ad Dimyati
 * Version          : 01.00.00
@@ -20,7 +20,7 @@
 ?>
 <div class="box-content no-padding">
     <div class="search-fields bs-callout list-title">
-		<h2><b>Timeshet List Per-Employee</b></h2>
+		<h2><b>Timeshet List Per-Periode</b></h2>
 		<div style="height:100%;
 					
 					padding-top: 10px;
@@ -36,7 +36,8 @@
                 <thead>
 			<tr>
                             <th width="5" class="text-center">No</th>
-				<th class="text-center">Timesheet Employee</th>
+				<th class="text-center">Timesheet Periode</th>
+                               
 			</tr>
 		</thead>
                 <tbody>
@@ -52,7 +53,7 @@
                     		 
                     		echo "<tr class='Approved'>";
                     		echo "<td class='text-center'>".$idx."</td>";
-                    		echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$value['employee_id']."/rm')\"><b>".$value['EMPLOYEE_NAME']."</b></a></td>";
+                    		echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/approve_pmo_emp/".$value['date_period']."')\"><b>".$value['char_period']."<b></a></td>";
                     		echo "</tr>";
                     		 
                     	}
@@ -62,6 +63,5 @@
                     ?>
                 </tbody>
                 </table>
-                <div style="margin:10px;"></div>
-    <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/approve_rm_periode')">Back...</button>
+    
 </div>

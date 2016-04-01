@@ -68,9 +68,11 @@
                                     }
                                 } ?>
                     </select>
+                    <input type="hidden" value="<?php echo $st_approve; ?>" name="jenis"/>
                     <?php } else {?>
                     <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" class="form-control holo">
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" name="employee_id"/>
+                    <input type="hidden" value="<?php echo $st_approve; ?>" name="jenis"/>
                     <?php }?>
                 </div>
 				<span id="spanId"style="color:red;"></span>

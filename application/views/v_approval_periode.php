@@ -21,11 +21,7 @@
 <div class="box-content no-padding">
     <div class="search-fields bs-callout list-title">
 		<h2><b>Timeshet List Per-Periode</b></h2>
-		<div style="height:100%;
-					
-					padding-top: 10px;
-					padding-left: 15px;
-                                        padding-bottom: 0px;">
+		<div style="height:100%;padding-top: 10px;padding-left: 15px;padding-bottom: 0px;">
                     
                 </div>
                
@@ -53,7 +49,7 @@
                     		 
                     		echo "<tr class='Approved'>";
                     		echo "<td class='text-center'>".$idx."</td>";
-                    		echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/approve_rm_emp/".$value['approved_by']."/".$value['date_period']."')\">Timesheet Periode ".$value['char_period']."</a></td>";
+                    		echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/approve_rm_emp/".$value['approved_by']."/".$value['date_period']."')\"><b>".$value['char_period']."<b></a></td>";
                     		echo "</tr>";
                     		 
                     	}

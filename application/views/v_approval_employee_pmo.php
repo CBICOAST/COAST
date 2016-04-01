@@ -52,7 +52,7 @@
                     		 
                     		echo "<tr class='Approved'>";
                     		echo "<td class='text-center'>".$idx."</td>";
-                    		echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$value['employee_id']."/rm')\"><b>".$value['EMPLOYEE_NAME']."</b></a></td>";
+                    		echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$value['employee_id']."/pmo')\"><b>".$value['EMPLOYEE_NAME']."</b></a></td>";
                     		echo "</tr>";
                     		 
                     	}
@@ -63,5 +63,5 @@
                 </tbody>
                 </table>
                 <div style="margin:10px;"></div>
-    <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/approve_rm_periode')">Back...</button>
+    <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/approve_pmo_periode')">Back...</button>
 </div>
