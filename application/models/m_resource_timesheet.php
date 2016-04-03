@@ -80,8 +80,7 @@ from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOY
         function timesheetlist_resource_send_periode_pmo(){
         	$sql="select distinct
 DATE_FORMAT(a.periode_date,'%M %Y ') char_period,
-a.periode_date as date_period,
-a.approved_by
+a.periode_date as date_period
 from tb_r_timesheet as a left join  tb_m_employee as b on a.employee_id=b.EMPLOYEE_ID where a.status not in ('0','1') ";
         	$sql.=' order by periode_date desc';
         	return fetchArray($sql, 'all');
@@ -268,7 +267,8 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
        	a.act_code,
        	c.activity,
        	b.PROJECT_DESCRIPTION project_desc,
-       	a.status
+       	a.status,
+       	a.create_date
        	FROM tb_r_timesheet as a
        	left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
        	left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' and a.status not in ('0','1') order by date_ts";

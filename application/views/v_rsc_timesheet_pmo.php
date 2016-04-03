@@ -73,7 +73,9 @@
                     	 var total=0;
                     	 $('#table_timesheet_pmo tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
-                            	var item_status=item.status==2?'<button class="btn btn-success" onclick=\"send_timesheet_rm(\'c_resource_timesheet/approve_pmo\',\'APPROVE ALL TIMESHEET\',\''+item.employee_id+'\',\''+item.create_date+'\',\''+item.approved_by+'\')\"><i class="fa fa-check"></i>Approve</button>&nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</button>':'Already Approved';
+                            	 no=i+1;
+                              	var check_status=item.status==2?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                              	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -128,7 +130,9 @@
                         else{
                             var total=0;
                             $.each(data, function (i, item) {
-                            	var item_status=item.status==2?'<button class="btn btn-success" onclick=\"send_timesheet_rm(\'c_resource_timesheet/approve_pmo\',\'APPROVE ALL TIMESHEET\',\''+item.employee_id+'\',\''+item.create_date+'\',\''+item.approved_by+'\')\"><i class="fa fa-check"></i>Approve</button>&nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</button>':'Already Approved';
+                            	  no=i+1;
+                                 	var check_status=item.status==2?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                                 	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -136,18 +140,29 @@
                       +'</td><td class="text-center">'+item.hours 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
-                      +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+                      +'</a></td><td class="text-center">'+item_status
+                      +'</td><td class="text-center">'+check_status+'</td></tr>';
               total +=count_status_zero
                         });
                         $('#table_timesheet_pmo tbody').append(trHTML);
                         $('[data-toggle="tooltip"]').tooltip();
-                        if(total<=0){
-							$('#approve_pmo').css("display","none");
-							$('#send-back').css("display","none");
-                            }else{
-                            	$('#approve_pmo').css("display","block");
-                            	$('#send-back').css("display","block");
-                                }
+                        $("#approve_pmo").css("display","none");
+
+                        $(".check_row").click(function(){
+                			var pjg_chekbox =$('input.check_row:checkbox').length;
+                			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+                			if(pjg_checkedbox>0){
+								$("#approve_pmo").css("display","block");
+                    			}else{
+                    				$("#approve_pmo").css("display","none");
+                        			}
+                			if(pjg_chekbox==pjg_checkedbox){
+                				$('input.Checkall:checkbox').prop( "checked", true );
+                    			}
+                			else{
+                				$('input.Checkall:checkbox').prop( "checked", false );
+                    			}
+                            });
                         }
                         },
                   error: function(xhr, resp, text) {
@@ -155,11 +170,51 @@
                         }
                 });
         });
-        
+        $(".Checkall").click(function () {
+            $('input.check_row:checkbox').not(this).prop('checked', this.checked);
+            var pjg_chekbox =$('input.check_row:checkbox').length;
+			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+			if(pjg_checkedbox>0){
+				$("#approve_pmo").css("display","block");
+    			}else{
+    				$("#approve_pmo").css("display","none");
+        			}
+        });
         </script>
         <div class="box-content no-padding">
     <div class="search-fields bs-callout list-title">
 		<h2><b>Check Timesheet</b></h2>
+		<?php $date = date_create($periode) ?>
+		<table border="0">
+		<colgroup>
+					<col width="130px">
+					<col width="30px">
+					<col width="150px">
+					
+					
+				</colgroup>
+				<tbody>
+				<tr>
+		<td><b style="font-size: 15px;">Employee ID</b></td>
+		<td>:</td>
+		<td><b style="font-size: 15px;"><?php echo $employee_id; ?></b></td>
+		
+		</tr>
+		<tr>
+		<td><b style="font-size: 15px;">Employee Name</b></td>
+		<td>:</td>
+		<td><b style="font-size: 15px;"><?php echo $employee_name[0]['EMPLOYEE_NAME']; ?></b></td>
+		
+		</tr>
+		<tr>
+		<td><b style="font-size: 15px;">Timesheet Periode</b></td>
+		<td>:</td>
+		<td><b style="font-size: 15px;"><?php echo date_format($date,'F Y'); ?></b></td>
+		
+		</tr>
+		</tbody>
+		</table>
+		
 		<div style="height:100%;
 					
 					padding-top: 10px;
@@ -190,7 +245,7 @@
                                 <th class="text-center">Charge Description</th>
                                 <th class="text-center">Activity</th>
                                 <th class="text-center">Action</th>
-                                
+                                <th class="text-center"><div class="checkbox checkbox-success checkbox-circle"><input id="Checkall" class="styled Checkall" type="checkbox"><label for="Checkall">Approve All</label></div></th>
 			</tr>
 		</thead>
                 
@@ -201,7 +256,7 @@
                 </table>
                 
         
-
+<button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/approve_pmo_emp/<?php echo $periode; ?>')">Back...</button>
 <button type="button"  id="approve_pmo" style="display:none;" class="pull-right btn btn-success" name="submit" onclick="send_timesheet('c_resource_timesheet/approve_pmo_accepted','APPROVE ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>','<?php echo $approved_by; ?>')"><i class="fa fa-check-square-o"></i>Approve All</button>
 
 
