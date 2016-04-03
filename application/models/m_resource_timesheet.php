@@ -290,7 +290,7 @@ AND act_code='$data[act_code2]' and status='$data[status]'";
                $ack=1;
            }
            if($ack==1){
-           	$status=(($data['status']==0)?"":(($data['status']==1)?"and status<>0":(($data['status']==2)?"and status not in (0,1)":'')));
+           	$status=(($data['status']==0)?"":(($data['status']==1)?"and a.status<>0":(($data['status']==2)?"and a.status not in (0,1)":"")));
                $sql="SELECT 
    a.employee_id,
 	a.periode_date,

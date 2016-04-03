@@ -171,7 +171,7 @@ $dev_mode = false;
                                                 if($this_posisi!='FA' && $this_posisi!='HRGA' && $this_posisi!='OPERATION')
                                                     {
                                                        echo"<li>";
-                                                       echo"<a href=\"#\" id=\"caltab\" url=\"c_pmo_timesheet/load_view\" tabtitle=\"PMO Timesheet\">";
+                                                       echo"<a href=\"#\" id=\"caltab\" url=\"c_resource_timesheet/approve_pmo_periode\" tabtitle=\"PMO Timesheet\">";
                                                        echo"<i class=\"fa fa-clock-o\"></i> <span>PMO Timesheet</span>";
                                                        echo"</a>";
                                                        echo"</li>";    

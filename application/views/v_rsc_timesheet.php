@@ -66,7 +66,7 @@
                        else{
                        	 var total=0;
                        $.each(data, function (i, item) {
-                       	var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
+                       	var item_status=item.status==0?'<a class="btn btn-danger btn-xs" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
                        	var count_status_zero=item.status==0?1:0;
                  trHTML +='<tr><td class="text-center">'+item.date_ts
                          +'</td><td class="text-center">'+item.holiday 
@@ -145,7 +145,7 @@
                             else{
                             	 var total=0;
                             $.each(data, function (i, item) {
-                                var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
+                                var item_status=item.status==0?'<a class="btn btn-danger btn-xs" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
                                 var count_status_zero=item.status==0?1:0;
                       trHTML +='<tr><td class="text-center">'+item.date_ts
                               +'</td><td class="text-center">'+item.holiday 
@@ -230,7 +230,7 @@
                 	 var total=0;
                 	 $('#table_timesheet tbody tr').remove(); 
                         $.each(data, function (i, item) {
-                        	var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
+                        	var item_status=item.status==0?'<a class="btn btn-danger btn-xs" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
                         	var count_status_zero=item.status==0?1:0;
           trHTML +='<tr><td class="text-center">'+item.date_ts
                   +'</td><td class="text-center">'+item.holiday 
@@ -309,7 +309,7 @@
                     	 var total=0;
                     	 $('#table_timesheet tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
-                            	var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a> &nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
+                            	var item_status=item.status==0?'<a class="btn btn-danger btn-xs" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
                             	var count_status_zero=item.status==0?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -363,7 +363,7 @@
                         else{
                             var total=0;
                             $.each(data, function (i, item) {
-                            	var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
+                            	var item_status=item.status==0?'<a class="btn btn-danger btn-xs" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
                             	var count_status_zero=item.status==0?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -406,7 +406,7 @@
 		<tr>
 		<td><b style="font-size: 15px;">Employee Name</b></td>
 		<td>:</td>
-		<td><b style="font-size: 15px;"><?php echo $employee_name; ?></b></td>
+		<td><b style="font-size: 15px;"><?php echo $employee_name[0]['EMPLOYEE_NAME']; ?></b></td>
 		
 		</tr>
 		<tr>
