@@ -55,7 +55,7 @@
                        dataType:'json',
                        data:$("#form-edit-timesheet").serialize(),
                        success:function(data) {
-                   $('#table_timesheet tbody tr').remove(); 
+                   $('#table_timesheet_rm tbody tr').remove(); 
                        var trHTML = '';
                        if(data ===0){
                            $('#table_timesheet_rm tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
@@ -65,25 +65,38 @@
                        else{
                        	 var total=0;
                        $.each(data, function (i, item) {
-                       	var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
-                       	var count_status_zero=item.status==0?1:0;
+                    	   no=i+1;
+                       	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                       	var item_status=item.status==1?'<a class="btn btn-info" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
+                       	var count_status_zero=item.status==1?1:0;
                  trHTML +='<tr><td class="text-center">'+item.date_ts
                          +'</td><td class="text-center">'+item.holiday 
                          +'</td><td class="text-center">'+item.work_desc 
                          +'</td><td class="text-center">'+item.hours 
                          +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                          +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
-                         +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+                         +'</a></td><td class="text-center">'+item_status
+                         +'</td><td class="text-center">'+check_status+'</td></tr>';
                  total +=count_status_zero;
                            });
                            $('#table_timesheet_rm tbody').append(trHTML);
                            $("#validasi-form").css({'display':'none'}); 
                            $('[data-toggle="tooltip"]').tooltip();
-                           if(total<=0){
-   							$('#send').css("display","none");
-                               }else{
-                               	$('#send').css("display","block");
-                                   }
+                           $(".check_row").click(function(){
+                   			var pjg_chekbox =$('input.check_row:checkbox').length;
+                   			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+                   			if(pjg_checkedbox>0){
+   								$("#send_rm").css("display","block");
+                       			}else{
+                       				$("#send_rm").css("display","none");
+                           			}
+                   			if(pjg_chekbox==pjg_checkedbox){
+                   				$('input.Checkall:checkbox').prop( "checked", true );
+                       			}
+                   			else{
+                   				$('input.Checkall:checkbox').prop( "checked", false );
+                       			}
+                               });
                        }
                           },
                      error: function(xhr, resp, text) {
@@ -253,7 +266,7 @@
             
         });
         $(".Checkall").click(function () {
-            $('input:checkbox').not(this).prop('checked', this.checked);
+            $('input.check_row:checkbox').not(this).prop('checked', this.checked);
             var pjg_chekbox =$('input.check_row:checkbox').length;
 			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
 			if(pjg_checkedbox>0){

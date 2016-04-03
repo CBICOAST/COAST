@@ -290,6 +290,7 @@ AND act_code='$data[act_code2]' and status='$data[status]'";
                $ack=1;
            }
            if($ack==1){
+           	$status=(($data['status']==0)?"":(($data['status']==1)?"and status<>0":(($data['status']==2)?"and status not in (0,1)":'')));
                $sql="SELECT 
    a.employee_id,
 	a.periode_date,
@@ -305,7 +306,7 @@ AND act_code='$data[act_code2]' and status='$data[status]'";
 	a.status
  FROM tb_r_timesheet as a 
  left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE 
- left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode_date]' and employee_id='$data[employee_id]' order by date_ts asc";
+ left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode_date]' and employee_id='$data[employee_id]' $status  order by date_ts asc";
                return fetchArray($sql, 'all');
            }
        }
