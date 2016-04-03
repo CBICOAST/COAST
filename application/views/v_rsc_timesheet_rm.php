@@ -29,7 +29,7 @@
        
         <link rel="stylesheet" href="<?php echo js_url(); ?>plugins/datepicker/datepicker3.css">
         <script type="text/javascript">
-        function send_timesheet(url,title,employee,periode,approve){
+        function send_timesheet_rm(url,title,employee,periode,approve){
             var url_link=url;
             var employee_id=employee;
             var periode_date=periode;
@@ -74,7 +74,7 @@
                     	 $('#table_timesheet_rm tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
                             	no=i+1;
-                            	var check_status=item.status==1?'<div class="checkbox checkbox-success checkbox-circle"><input id="checkbox'+no+'" class="styled check_row" type="checkbox"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle"><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                            	var check_status=item.status==1?'<div class="checkbox checkbox-success checkbox-circle"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle"><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                             	var item_status=item.status==1?'<a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
@@ -91,9 +91,9 @@
                         $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
                         if(total<=0){
-        					$('#send').css("display","none");
+        					$('#send_rm').css("display","none");
                             }else{
-                            	$('#send').css("display","block");
+                            	$('#send_rm').css("display","block");
                                 }
                     
                        },
@@ -127,13 +127,13 @@
                     var trHTML = '';
                         if(data ===0){
                             $('#table_timesheet_rm tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
-                            $('#send').css("display","none");
+                            $('#send_rm').css("display","none");
                         }
                         else{
                             var total=0;
                             $.each(data, function (i, item) {
                             	no=i+1;
-                            	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                            	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                             	var item_status=item.status==1?'<a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
@@ -148,17 +148,15 @@
                         });
                         $('#table_timesheet_rm tbody').append(trHTML);
                         $('[data-toggle="tooltip"]').tooltip();
-                        if(total<=0){
-							$('#send').css("display","none");
-                            }else{
-                            	$('#send').css("display","block");
-                            	
-                                }
-                        var panjang= $('.check_approve').length;
                         
                         $(".check_row").click(function(){
                 			var pjg_chekbox =$('input.check_row:checkbox').length;
                 			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+                			if(pjg_checkedbox>0){
+								$("#send_rm").css("display","block");
+                    			}else{
+                    				$("#send_rm").css("display","none");
+                        			}
                 			if(pjg_chekbox==pjg_checkedbox){
                 				$('input.Checkall:checkbox').prop( "checked", true );
                     			}
@@ -176,6 +174,13 @@
         });
         $(".Checkall").click(function () {
             $('input:checkbox').not(this).prop('checked', this.checked);
+            var pjg_chekbox =$('input.check_row:checkbox').length;
+			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+			if(pjg_checkedbox>0){
+				$("#send_rm").css("display","block");
+    			}else{
+    				$("#send_rm").css("display","none");
+        			}
         });
 
         
@@ -226,7 +231,7 @@
                 
         
 <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/approve_rm_emp/<?php echo $approved_by; ?>/<?php echo $periode; ?>')">Back...</button>
-<button value="Approve All" id="send" style="display:none;" class="pull-right btn btn-success " name="submit" onclick="send_timesheet('c_resource_timesheet/approve_pmo','APPROVE ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>','<?php echo $approved_by; ?>')"><i class="fa fa-check-square-o"></i>Approve All</button>
+<button value="Approve All" id="send_rm" style="display:none;" class="pull-right btn btn-success " name="submit" onclick="send_timesheet_rm('c_resource_timesheet/approve_pmo','APPROVE ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>','<?php echo $approved_by; ?>')"><i class="fa fa-check-square-o"></i>Approve All</button>
 
 
         
