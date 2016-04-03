@@ -75,7 +75,7 @@
                             $.each(data.data_sheet, function (i, item) {
                             	no=i+1;
                             	var check_status=item.status==1?'<div class="checkbox checkbox-success checkbox-circle"><input id="checkbox'+no+'" class="styled check_row" type="checkbox"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle"><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
-                            	var item_status=item.status==1?'&nbsp;&nbsp; <button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</button>':'Already Send';
+                            	var item_status=item.status==1?'<a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -134,7 +134,7 @@
                             $.each(data, function (i, item) {
                             	no=i+1;
                             	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
-                            	var item_status=item.status==1?'<button class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</button>':'Already Send';
+                            	var item_status=item.status==1?'<a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -155,13 +155,17 @@
                             	
                                 }
                         var panjang= $('.check_approve').length;
-                        if(panjang<=0){
-							$('#Checkall').attr('disabled',true);
-                            }
-                        else{
-                        	$('#Checkall').attr('disabled',false);
-                            }
                         
+                        $(".check_row").click(function(){
+                			var pjg_chekbox =$('input.check_row:checkbox').length;
+                			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+                			if(pjg_chekbox==pjg_checkedbox){
+                				$('input.Checkall:checkbox').prop( "checked", true );
+                    			}
+                			else{
+                				$('input.Checkall:checkbox').prop( "checked", false );
+                    			}
+                            });
                         }
                         },
                   error: function(xhr, resp, text) {
@@ -173,9 +177,8 @@
         $(".Checkall").click(function () {
             $('input:checkbox').not(this).prop('checked', this.checked);
         });
-        $(".check_row").click(function(){
-			$('inpput.check_row[]')
-            });
+
+        
         </script>
         <div class="box-content no-padding">
     <div class="search-fields bs-callout list-title">
