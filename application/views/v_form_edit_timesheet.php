@@ -24,39 +24,18 @@
                     <input readonly=""  style="text-align: left; width: 175px;height: 100%;" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" class="form-control holo date_ts" id="date_ts" name="date_ts">
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" name="date_ts2"/>
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['holiday']; ?>" name="holiday" id="holiday" />
-                </div>
-				<span id="spanId"style="color:red;"></span>
-            </div>
-                <div class="form-group">
-                <label for="date_ts" class="col-sm-4">Date Periode</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo date_format(date_create($edit_data_timesheet[0]['periode_date']), 'F Y'); ?>" class="form-control holo">
+                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['employee_id']; ?>" name="employee_id"/>
                     <input type="hidden" id="periode" name="periode" value="<?php echo $edit_data_timesheet[0]['periode_date']; ?>"/>
                 </div>
 				<span id="spanId"style="color:red;"></span>
-            </div>
-                <div class="form-group">
-                <label for="employee-id" class="col-sm-4 control-label">Employee ID</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-user"></i>
-                    </div>
-                    <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo $edit_data_timesheet[0]['employee_id']; ?>" class="form-control holo" id="employee-id">
-                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['employee_id']; ?>" name="employee_id"/>
-                </div>
-				<span id="spanId"style="color:red;"></span>
-            </div>
-                
-                <div class="form-group">
+            </div>   
+<?php if ($st_approve==0){ ?>
+<div class="form-group">
                 <label for="approved" class="col-sm-4 control-label">Approved By<span id="spanId" style="color:red;font-size: 17px">*</span></label>
                 <div class="input-group">
                     <div class="input-group-addon">
                         <i class="fa fa-check"></i>
                     </div>
-                    <?php if ($st_approve==0){ ?>
                     <select name="approved[]"  data-placeholder="Choose Your Approval" id="charge" class="select_charge select_charge1 pull-right" style="width: 300px">
                                 <option value=""></option>
                                 <?php foreach ($employee_names as $key =>$value){
@@ -69,14 +48,17 @@
                                 } ?>
                     </select>
                     <input type="hidden" value="<?php echo $st_approve; ?>" name="jenis"/>
-                    <?php } else {?>
-                    <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" class="form-control holo">
-                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" name="employee_id"/>
-                    <input type="hidden" value="<?php echo $st_approve; ?>" name="jenis"/>
-                    <?php }?>
+                  
                 </div>
 				<span id="spanId"style="color:red;"></span>
             </div>
+
+
+  <?php } else {?>
+
+                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" name="employee_id"/>
+                    <input type="hidden" value="<?php echo $st_approve; ?>" name="jenis"/>
+                    <?php }?>
                 <div class="form-group">
                 <label for="hours" class="col-sm-4 control-label">Hours<span id="spanId" style="color:red;font-size: 17px">*</span></label>
                 <div class="input-group">

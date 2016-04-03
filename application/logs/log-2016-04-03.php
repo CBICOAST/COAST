@@ -692,3 +692,47 @@ ERROR - 2016-04-03 06:15:56 --> Severity: Notice  --> Undefined variable: charge
 ERROR - 2016-04-03 06:15:56 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 255
 ERROR - 2016-04-03 06:15:57 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
 ERROR - 2016-04-03 06:15:57 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-03 06:18:48 --> Severity: Warning  --> Missing argument 6 for C_RESOURCE_TIMESHEET::form_edit_timesheet() C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php 126
+ERROR - 2016-04-03 06:18:48 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 211
+ERROR - 2016-04-03 06:18:48 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 212
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 171
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 171
+ERROR - 2016-04-03 06:40:26 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 171
+ERROR - 2016-04-03 06:40:30 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 230
+ERROR - 2016-04-03 06:40:30 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 231
+ERROR - 2016-04-03 06:40:30 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 232
+ERROR - 2016-04-03 06:40:30 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 254
+ERROR - 2016-04-03 06:40:30 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 255
+ERROR - 2016-04-03 06:40:31 --> Severity: Warning  --> Missing argument 6 for C_RESOURCE_TIMESHEET::form_edit_timesheet() C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php 126
+ERROR - 2016-04-03 06:40:31 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 216
+ERROR - 2016-04-03 06:40:31 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 217
+ERROR - 2016-04-03 06:40:52 --> Severity: Warning  --> Missing argument 6 for C_RESOURCE_TIMESHEET::form_edit_timesheet() C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php 126
+ERROR - 2016-04-03 06:40:52 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 216
+ERROR - 2016-04-03 06:40:52 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 217
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 171
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 171
+ERROR - 2016-04-03 08:42:31 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 171
+ERROR - 2016-04-03 08:42:35 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 230
+ERROR - 2016-04-03 08:42:35 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 231
+ERROR - 2016-04-03 08:42:35 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 232
+ERROR - 2016-04-03 08:42:35 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 254
+ERROR - 2016-04-03 08:42:35 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 255
+ERROR - 2016-04-03 08:42:36 --> Severity: Warning  --> Missing argument 6 for C_RESOURCE_TIMESHEET::form_edit_timesheet() C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php 126
+ERROR - 2016-04-03 08:42:36 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 198
+ERROR - 2016-04-03 08:42:36 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_edit_timesheet.php 199
+ERROR - 2016-04-03 08:42:41 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-03 08:42:41 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-03 08:44:21 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-03 08:44:21 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
