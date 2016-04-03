@@ -285,7 +285,7 @@ WHERE employee_id='$data[employee_id]'
 AND periode_date='$data[periode_date]'  
 AND date_ts='$data[date_ts2]'
 AND charge_code='$data[charge_code2]' 
-AND act_code='$data[act_code2]'";
+AND act_code='$data[act_code2]' and status='$data[status]'";
            if($this->db->query($sql)){
                $ack=1;
            }

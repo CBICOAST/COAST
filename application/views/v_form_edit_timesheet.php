@@ -56,7 +56,7 @@
 
   <?php } else {?>
 
-                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" name="employee_id"/>
+                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['approved_by']; ?>" name="approved[]"/>
                     <input type="hidden" value="<?php echo $st_approve; ?>" name="jenis"/>
                     <?php }?>
                 <div class="form-group">

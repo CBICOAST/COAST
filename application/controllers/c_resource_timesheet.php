@@ -172,7 +172,7 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
              'act_code2' => $this->input->post('activity2'),
              'approved_by' => $this->input->post('approved')[0],
              'holiday'=> $this->input->post('holiday'),
-             'status'=>0
+             'status'=>$this->input->post('jenis')
          );
          echo json_encode($this->timesheet->edit_timesheet($dat_arr));
      }
