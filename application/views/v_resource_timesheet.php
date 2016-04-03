@@ -51,7 +51,7 @@
                         echo "<tr class='Approved'>";
                         echo "<td class='text-center'>".$idx."</td>";
                         echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."/resource')\"><b>".$value['char_period']."</b></a></td>";
-                        echo "<td class=\"text-center\"><a href=\"#\" class=\"opt edit\" title=\"Detail\" onclick=\"form_new_timesheet('Create New Timesheet Periode','c_resource_timesheet/form_new_timesheet')\"></a></td>";
+                        echo "<td class=\"text-center\"><a class='btn btn-danger btn-xs' onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class='fa fa-times'></i>Delete</a></td>";
                         echo "</tr>";
      }
                     
