@@ -24,31 +24,13 @@
                     </div>
                     <input readonly="" style="text-align: left; width: 13%;height: 100%;cursor: pointer;font-size: 90%;" value="" class="form-control holo date_ts" id="date_ts" name="date_ts">
                     <input type="hidden" name="holiday" id="holiday" />
-                </div>
-				<span id="spanId"style="color:red;"></span>
-            </div>
-                <div class="form-group">
-                <label for="periode" class="col-sm-4">Date Periode</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo date_format(date_create($periode), 'F Y'); ?>" class="form-control holo">
                     <input type="hidden" id="periode" name='periode' value="<?php echo $periode; ?>"/>
-                </div>
-				<span id="spanId"style="color:red;"></span>
-            </div>
-                <div class="form-group">
-                <label for="employee-id" class="col-sm-4 control-label">Employee ID</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-user"></i>
-                    </div>
-                    <input disabled style="text-align: left; width: 175px;height: 100%;background:none;border: none;" value="<?php echo $employee_id; ?>" class="form-control holo" id="employee-id">
                     <input type="hidden" value="<?php echo $employee_id; ?>" name="employee_id"/>
                 </div>
 				<span id="spanId"style="color:red;"></span>
             </div>
+                
+                
                 <div class="form-group">
                 <label for="approved" class="col-sm-4 control-label">Approved By<span id="spanId" style="color:red;font-size: 17px">*</span></label>
                 <div class="input-group">

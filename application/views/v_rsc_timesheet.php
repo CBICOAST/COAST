@@ -156,23 +156,26 @@
     <div class="search-fields bs-callout list-title">
 		<h2><b>Form Timesheet</b></h2>
 		<?php $date = date_create($periode) ?>
-		<table border="0" cellpadding="1" cellspacing="1">
+		<table border="0">
 		<colgroup>
 					<col width="130px">
+					<col width="30px">
 					<col width="150px">
-					<col width="50px">
+					
 					
 				</colgroup>
 				<tbody>
 		<tr>
-		<td><b>Nama:</b></td>
-		<td><b><?php echo $employee_name; ?></b></td>
-		<td>&nbsp;</td>
+		<td><b style="font-size: 15px;">Employee Nama</b></td>
+		<td>:</td>
+		<td><b style="font-size: 15px;"><?php echo $employee_name; ?></b></td>
+		
 		</tr>
 		<tr>
-		<td><b>Periode:</b></td>
-		<td><b><?php echo date_format($date,'F Y'); ?></b></td>
-		<td>&nbsp;</td>
+		<td><b style="font-size: 15px;">Timesheet Periode</b></td>
+		<td>:</td>
+		<td><b style="font-size: 15px;"><?php echo date_format($date,'F Y'); ?></b></td>
+		
 		</tr>
 		</tbody>
 		</table>
