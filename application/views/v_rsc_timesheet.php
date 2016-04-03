@@ -29,6 +29,87 @@
        
         <link rel="stylesheet" href="<?php echo js_url(); ?>plugins/datepicker/datepicker3.css">
         <script type="text/javascript">
+      //fungsi untuk menghapus salah satu row timesheet
+        function delete_timesheet(url,date,charge,employee,act,periode){
+        var url_link=url;
+        var date_ts=date;
+        var charge_code=charge;
+        var employee_id=employee;
+        var act_code=act;
+        var periode_date=periode;
+        if(dialog === null)
+            {
+                dialog = $.Zebra_Dialog('Are you sure to remove your timesheet data on <strong>'+date_ts+'</strong> with Chargecode <strong>'+charge_code+'</strong>?', {
+                                'type': 'question',
+                                'overlay_close': false,
+                                'custom_class':  'form-dialog',
+                                'title':    'DELETE CONFIRMATION',
+                                'animation_speed_hide': 50,
+                                'animation_speed_show': 700,
+                                'max_height': 550,
+                                'overlay_opacity': '.75',
+                                'buttons':  [
+                                {caption: 'Yes', callback: function() {
+                                        $.ajax({
+            url:url_link,
+            type:'POST',
+            dataType:'json',
+            data:{
+                date:date_ts,
+                chargecode:charge_code,
+                employeeid:employee_id,
+                actcode:act_code,
+                periode_dates:periode_date
+            },
+            success:function(data){
+                var trHTML = '';
+                if(data ===0){
+                	$('#table_timesheet tbody tr').remove(); 
+                    $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                    $("#validasi-form").css({'display':'none'});
+                    $('#send').css("display","none");
+                }
+                else{
+                	 var total=0;
+                	 $('#table_timesheet tbody tr').remove(); 
+                        $.each(data, function (i, item) {
+                        	var item_status=item.status==0?'<a class="btn btn-danger" onclick=\"delete_timesheet(\'c_resource_timesheet/delete_timesheet\',\''+item.date_ts+'\',\''+item.charge_code+'\',\''+item.employee_id+'\',\''+item.act_code+'\',\''+item.periode_date+'\')\"><i class="fa fa-times"></i>Delete</a>&nbsp;&nbsp; <a class="btn btn-info" onclick=\"form_edit_timesheet(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'\')"><i class="fa fa-edit">Edit</i></a>':'Already Send';
+                        	var count_status_zero=item.status==0?1:0;
+          trHTML +='<tr><td class="text-center">'+item.date_ts
+                  +'</td><td class="text-center">'+item.holiday 
+                  +'</td><td class="text-center">'+item.work_desc 
+                  +'</td><td class="text-center">'+item.hours 
+                  +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
+                  +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
+                  +'</a></td><td class="text-center">'+item_status+'</td></tr>';
+          total +=count_status_zero;
+                    });
+                    $('#table_timesheet tbody').append(trHTML);
+                    $("#validasi-form").css({'display':'none'});
+                    $('[data-toggle="tooltip"]').tooltip();
+                    if(total<=0){
+						$('#send').css("display","none");
+                        }else{
+                        	$('#send').css("display","block");
+                            }
+                }
+                   },
+              error: function(xhr, resp, text) {
+              console.log(xhr, resp, text);
+                    }
+        });
+                                }},
+                                {caption: 'No', callback: function() { form_dialog_close();}}],
+                                'width':1000,
+                                'height':1000,
+                                'onClose':  function() {
+                                                form_dialog_close();
+                                            }
+                            });
+            }
+        
+    }
+        
         function send_timesheet(url,title,employee,periode){
             var url_link=url;
             var employee_id=employee;
