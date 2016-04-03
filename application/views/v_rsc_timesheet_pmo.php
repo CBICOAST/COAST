@@ -29,6 +29,101 @@
        
         <link rel="stylesheet" href="<?php echo js_url(); ?>plugins/datepicker/datepicker3.css">
         <script type="text/javascript">
+
+        function form_edit_timesheet_pmo(title, url){
+            if(dialog === null)
+            {
+                var message = "";
+                dialog = $.Zebra_Dialog(message, {
+                                'type':     false,
+                                'overlay_close': false,
+                                'custom_class':  'form-dialog',
+                                'title':    title,
+                                'animation_speed_hide': 50,
+                                'animation_speed_show': 1000,
+                                'source':  {'ajax': url,
+                                            'cache': false},
+                                'max_height': 550,
+                                'overlay_opacity': '.75',
+                                'buttons':  [
+                                {caption: 'Save', callback: function() {
+                                        
+                                        if($(".select_charge").chosen().val().length !== 0 && $(".select_act").chosen().val().length!==0 && $('textarea#work').val().length!==0 && $('#hours').val().length!==0 && $(".date_ts").val().length !== 0){
+                                            $.ajax({
+                url:'<?php echo base_url(); ?>'+'c_resource_timesheet/edit_timesheet',
+                type:'POST',
+                dataType:'json',
+                data:$("#form-edit-timesheet").serialize(),
+                success:function(data) {
+             	   $('input.Checkall:checkbox').prop( "checked", false );
+             	   $("#approve_pmo").css("display","none");
+            $('#table_timesheet_pmo tbody tr').remove(); 
+                var trHTML = '';
+                if(data ===0){
+                    $('#table_timesheet_pmo tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                    $("#validasi-form").css({'display':'none'});
+                    $('#approve_pmo').css("display","none");
+                }
+                else{
+                	 var total=0;
+                $.each(data, function (i, item) {
+             	   no=i+1;
+                	var check_status=item.status==2?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_pmo(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/2\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
+                	var count_status_zero=item.status==2?1:0;
+          trHTML +='<tr><td class="text-center">'+item.date_ts
+                  +'</td><td class="text-center">'+item.holiday 
+                  +'</td><td class="text-center">'+item.work_desc 
+                  +'</td><td class="text-center">'+item.hours 
+                  +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
+                  +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
+                  +'</a></td><td class="text-center">'+item_status
+                  +'</td><td class="text-center">'+check_status+'</td></tr>';
+          total +=count_status_zero;
+                    });
+                    $('#table_timesheet_pmo tbody').append(trHTML);
+                    $("#validasi-form").css({'display':'none'}); 
+                    $('[data-toggle="tooltip"]').tooltip();
+                    $(".check_row").click(function(){
+            			var pjg_chekbox =$('input.check_row:checkbox').length;
+            			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+            			if(pjg_checkedbox>0){
+							$("#approve_pmo").css("display","block");
+                			}else{
+                				$("#approve_pmo").css("display","none");
+                    			}
+            			if(pjg_chekbox==pjg_checkedbox){
+            				$('input.Checkall:checkbox').prop( "checked", true );
+                			}
+            			else{
+            				$('input.Checkall:checkbox').prop( "checked", false );
+                			}
+                        });
+                }
+                   },
+              error: function(xhr, resp, text) {
+              console.log(xhr, resp, text);
+                    }
+            });
+                                
+                                        }else{
+
+                                        	$("#validasi-form").css({'display':'block'});
+                                        }
+                                        
+                                        }},
+                                {caption: 'Cancel', callback: function() { form_dialog_close();}}
+            ],
+                                'width':1000,
+                                'height':1000,
+                                'onClose':  function() {
+                                                form_dialog_close();
+                                            }
+                            });
+            }
+            
+        }
+        
         function send_timesheet(url,title,employee,periode,approve){
             var url_link=url;
             var employee_id=employee;
@@ -75,7 +170,7 @@
                             $.each(data.data_sheet, function (i, item) {
                             	 no=i+1;
                               	var check_status=item.status==2?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
-                              	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
+                              	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_pmo(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/2\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
@@ -132,7 +227,7 @@
                             $.each(data, function (i, item) {
                             	  no=i+1;
                                  	var check_status=item.status==2?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+','+item.employee_id+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
-                                 	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
+                                 	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_pmo(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/2\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
