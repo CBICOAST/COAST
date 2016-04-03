@@ -58,6 +58,7 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
 	}
         function load_timesheet_periode($periode,$employee,$type){
         	$data['employee_id']=$employee;
+        	$data['employee_name']=$this->user['name'];
             $data['periode']=$periode;
             $data['approved_by']=$this->user['id'];
             if ($type=='rm'){
