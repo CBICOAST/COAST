@@ -163,8 +163,13 @@ $dev_mode = false;
                                                 if($this_posisi!='FA' && $this_posisi!='HRGA' && $this_posisi!='OPERATION')
                                                     {
                                                        echo"<li>";
-                                                       echo"<a href=\"#\" id=\"timesheettab\" url=\"c_resource_timesheet/load_view\" tabtitle=\"Timesheet\">";
+                                                       echo"<a href=\"#\" id=\"timesheettab\" url=\"c_resource_timesheet/resource_timesheet\" tabtitle=\"Timesheet\">";
                                                        echo"<i class=\"fa fa-clock-o\"></i> <span>Timesheet</span>";
+                                                       echo"</a>";
+                                                       echo"</li>";
+                                                       echo"<li>";
+                                                       echo"<a href=\"#\" id=\"createtimesheettab\" url=\"c_resource_timesheet/create_timesheet\" tabtitle=\"Create Timesheet\">";
+                                                       echo"<i class=\"fa fa-clock-o\"></i> <span>Create Timesheet</span>";
                                                        echo"</a>";
                                                        echo"</li>";
                                                      }
@@ -590,64 +595,7 @@ $dev_mode = false;
                 }
             }
             
-function form_new_timesheet(title, url){
 
-if(dialog === null)
-                {
-                    var message = "";
-                    dialog = $.Zebra_Dialog(message, {
-                                    'type':     false,
-                                    'overlay_close': false,
-                                    'custom_class':  'form-dialog',
-                                    'title':    title,
-                                    'animation_speed_hide': 50,
-                                    'animation_speed_show': 1000,
-                                    'source':  {'ajax': url,
-                                                'cache': false},
-                                    'max_height': 550,
-                                    'overlay_opacity': '.75',
-                                    'buttons':  [
-                                    {caption: 'Save', callback: function() {
-                                    	if($(".date_ts").val().length !== 0 && $(".date_ts2").val().length !== 0){
-                                            
-            $.ajax({
-                    url:'<?php echo base_url(); ?>'+'c_resource_timesheet/generate_new_timesheet',
-                    type:'POST',
-                    dataType:'json',
-                    data:$("#new_timesheet").serialize(),
-                    success:function(data) {
-                $('#timesheet_periode tbody tr').remove(); 
-                    var trHTML = '';
-                    $.each(data, function (i, item) {
-                        var b=i+1;
-                        trHTML +='<tr><td class="text-center">'+b
-                        +'</td><td><a href=\"#\" title=\"Detail\"  onclick=\"change_page(this, \'c_resource_timesheet/load_timesheet_periode/'+item.date_period+'/'+item.employee_id+'\')"><b>'+item.char_period+'</b>'
-                        +'</a></td><td class="text-center"><a class=\"btn btn-danger btn-xs\" onclick=\"delete_periode(\'c_resource_timesheet/delete_periode\',\''+item.date_period+'\')"><i class=\"fa fa-times\"></i>Delete</a></td></tr>';
-               
-                        });
-                        $('#timesheet_periode tbody').append(trHTML); 
-                        $("#validasi-form").css({'display':'none'});
-                            },
-                  error: function(xhr, resp, text) {
-                  console.log(xhr, resp, text);
-                        }
-                });                        
-            
-                                    	}else{
-                                    		$("#validasi-form").css({'display':'block'});
-                                    		}        
-                                    }},
-                                    {caption: 'Cancel', callback: function() { form_dialog_close();}}
-                ],
-                                    'width':1000,
-                                    'height':1000,
-                                    'onClose':  function() {
-                                                    form_dialog_close();
-                                                }
-                                });
-                }
-
-}
             function confirmation_dialog(title, message, type, functionName, elm){
                 //type:
                 //- confirmation

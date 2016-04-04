@@ -49,12 +49,17 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
             
 	}
 
-	function load_view()
+	function resource_timesheet()
 	{
                 $param['periode']=$this->timesheet->list_timesheet_periode();
                 $param['employee_id']=$this->user['id'];
                
 		$this->load->view('v_resource_timesheet',$param);
+	}
+	function create_timesheet(){
+		$param['periode']=$this->timesheet->list_timesheet_periode();
+		$param['employee_id']=$this->user['id'];
+		$this->load->view('v_create_timesheet',$param);
 	}
         function load_timesheet_periode($periode,$employee,$type){
         	$data['employee_id']=$employee;

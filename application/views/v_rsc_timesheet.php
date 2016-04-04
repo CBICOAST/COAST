@@ -460,7 +460,7 @@
                 </table>
                 </form>
         
-<button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/load_view');">Back...</button>
+<button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/resource_timesheet');">Back...</button>
 <button   id="send" style="display:none;" class="pull-right btn btn-success" name="button" onclick="send_timesheet('c_resource_timesheet/approve_rm','SEND ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>')"><i class="fa fa-check-square-o"></i>Send For Approval</button>
 <script type="text/javascript">
 
