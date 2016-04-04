@@ -453,5 +453,22 @@ where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' an
        	where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' and a.approved_by='$data[approvedby]' and a.status=1";
        	return fetchArray($sql, 'all');
        }
+       function delete_periode($data){
+       	$ack=0;
+       	$sql="DELETE FROM tb_m_ts where periode_date='$data[periode]'";
+       	
+       	if($this->db->query($sql)){
+       		$ack=1;
+       	}
+       	if($ack==1){
+       		$sql = "select distinct
+DATE_FORMAT(periode_date,'%M %Y ') as char_period,
+periode_date as date_period,
+'$data[employee_id]' as employee_id
+from tb_m_ts order by periode_date desc";
+       		
+       		return fetchArray($sql, 'all');
+       	}
+       }
 }
 ?>

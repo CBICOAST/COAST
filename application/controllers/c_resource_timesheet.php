@@ -322,7 +322,11 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	$param['approve_by']=$this->user['id'];
     	$this->load->view('v_approval_employee_pmo',$param);
     }
-    
+    function delete_periode(){
+    	$param['periode']=$this->input->post('periode_dates');
+    	$param['employee_id']=$this->input->post('employee_id');
+    	echo json_encode($this->timesheet->delete_periode($param));
+    }
 }
 
 /* End of file c_oas021.php */

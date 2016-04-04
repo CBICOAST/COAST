@@ -620,9 +620,10 @@ if(dialog === null)
                     var trHTML = '';
                     $.each(data, function (i, item) {
                         var b=i+1;
-              trHTML +='<tr><td class="text-center">'+b
-                      +'</td><td><a href=\"#\" onclick=\"change_page(this,\'c_resource_timesheet/load_timesheet_periode/'+item.date_period+'\')\">Timesheet Periode '+item.char_period
-                      +'</a></td><td class="text-center"><a class="opt edit" onclick=\"change_page(this,\'c_resource_timesheet/load_timesheet_periode/'+item.date_period+'\')\"></a></td></tr>';
+                        trHTML +='<tr><td class="text-center">'+b
+                        +'</td><td><a href=\"#\" title=\"Detail\"  onclick=\"change_page(this, \'c_resource_timesheet/load_timesheet_periode/'+item.date_period+'/'+item.employee_id+'\')"><b>'+item.char_period+'</b>'
+                        +'</a></td><td class="text-center"><a class=\"btn btn-danger btn-xs\" onclick=\"delete_periode(\'c_resource_timesheet/delete_periode\',\''+item.date_period+'\')"><i class=\"fa fa-times\"></i>Delete</a></td></tr>';
+               
                         });
                         $('#timesheet_periode tbody').append(trHTML); 
                         $("#validasi-form").css({'display':'none'});
