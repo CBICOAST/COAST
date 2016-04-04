@@ -36,7 +36,8 @@ class M_RESOURCE_TIMESHEET extends CI_Model {
             
             $sql = "select distinct 
 DATE_FORMAT(periode_date,'%M %Y ') char_period,
-periode_date as date_period 
+periode_date as date_period,
+expired_date            		
 from tb_m_ts order by periode_date desc";	
 
 		return fetchArray($sql, 'all');
@@ -347,7 +348,8 @@ AND act_code='$data[act_code2]' and status='$data[status]'";
              else{
                  $sql="select distinct 
 DATE_FORMAT(periode_date,'%b %Y ') char_period,
-periode_date as date_period 
+periode_date as date_period,
+expired_date
 from tb_m_ts order by periode_date desc";	
 
 		return fetchArray($sql, 'all');
@@ -375,13 +377,13 @@ from tb_m_ts order by periode_date desc";
        		a.status
        		FROM tb_r_timesheet as a
        		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' order by date_ts asc";
+       		left join tb_m_activity as c on a.act_code=c.act_code  where a.create_date in ($data[create_date]) and employee_id in ($data[employee_id]) order by date_ts asc";
        		return fetchArray($sql2, 'all');
        	}
        }
-       function approve_pmo($data){
+       function approve_pmo($create_date,$employee_id,$approved_by){
        	$ack=0;
-       	$sql="UPDATE tb_r_timesheet SET status=2 WHERE status=1 AND employee_id='$data[employee_id]' AND periode_date='$data[periode]' AND approved_by='$data[approvedby]'";
+       	$sql="UPDATE tb_r_timesheet SET status=2 WHERE status=1 AND employee_id in ($employee_id) AND create_date in ($create_date) AND approved_by in ($approved_by)";
        	if($this->db->query($sql)){
        		$ack=1;
        	}
@@ -401,7 +403,7 @@ from tb_m_ts order by periode_date desc";
        		a.status
        		FROM tb_r_timesheet as a
        		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       		left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode]' and employee_id='$data[employee_id]' AND approved_by='$data[approvedby]' AND a.status IN ('1','2','3') order by date_ts asc";
+       		left join tb_m_activity as c on a.act_code=c.act_code  where a.create_date in ($create_date) and employee_id in ($employee_id) AND approved_by in ($approved_by) AND a.status<>0 order by date_ts asc";
        		return fetchArray($sql2, 'all');
        	}
        }
@@ -432,6 +434,7 @@ from tb_m_ts order by periode_date desc";
        	}
        }
        function get_email_approval_rm($data){
+       	
        	$sql="select 
 distinct b.USER_EMAIL 'email',
 c.EMPLOYEE_NAME 'reciver_name',
@@ -440,17 +443,18 @@ from tb_r_timesheet  as a
 left join tb_m_user as b on a.approved_by=b.EMPLOYEE_ID 
 left join tb_m_employee as c on a.approved_by=c.EMPLOYEE_ID 
 left join tb_m_employee as d on a.employee_id=d.EMPLOYEE_ID
-where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' and a.status=0";
+where a.employee_id in ($data[employee_id])  and a.create_date in ($data[create_date]) and a.status=0";
        	return fetchArray($sql, 'all');
        }
-       function get_email_approval_pmo($data){
+       function get_email_approval_pmo($create_date,$employee_id,$approved_by){
+       	
        	$sql="select	distinct
        	c.EMPLOYEE_NAME 'rm',
        	d.EMPLOYEE_NAME 'resource'
        	from tb_r_timesheet  as a
        	left join tb_m_employee as c on a.approved_by=c.EMPLOYEE_ID
        	left join tb_m_employee as d on a.employee_id=d.EMPLOYEE_ID
-       	where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' and a.approved_by='$data[approvedby]' and a.status=1";
+       	where a.employee_id in ($employee_id)  and a.create_date in ($create_date) and a.approved_by in ($approved_by) and a.status=1";
        	return fetchArray($sql, 'all');
        }
        function delete_periode($data){
@@ -464,6 +468,7 @@ where a.employee_id='$data[employee_id]'  and a.periode_date='$data[periode]' an
        		$sql = "select distinct
 DATE_FORMAT(periode_date,'%M %Y ') as char_period,
 periode_date as date_period,
+expired_date,
 '$data[employee_id]' as employee_id
 from tb_m_ts order by periode_date desc";
        		
