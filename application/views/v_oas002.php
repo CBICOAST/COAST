@@ -168,8 +168,8 @@ $dev_mode = false;
                                                        echo"</a>";
                                                        echo"</li>";
                                                        echo"<li>";
-                                                       echo"<a href=\"#\" id=\"createtimesheettab\" url=\"c_resource_timesheet/create_timesheet\" tabtitle=\"Create Timesheet\">";
-                                                       echo"<i class=\"fa fa-clock-o\"></i> <span>Create Timesheet</span>";
+                                                       echo"<a href=\"#\" id=\"periodetimesheettab\" url=\"c_resource_timesheet/create_timesheet\" tabtitle=\"Create Timesheet\">";
+                                                       echo"<i class=\"fa fa-clock-o\"></i> <span>Timesheet Periode</span>";
                                                        echo"</a>";
                                                        echo"</li>";
                                                      }

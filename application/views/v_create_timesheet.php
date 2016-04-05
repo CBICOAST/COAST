@@ -143,7 +143,7 @@ function form_new_timesheet(title, url){
 </script>
 <div class="box-content no-padding">
     <div class="search-fields bs-callout list-title">
-		<h2><b>Timeshet List</b></h2>
+		<h2><b>Timeshet Periode List</b></h2>
 		<div style="height:100%;
 					
 					padding-top: 10px;

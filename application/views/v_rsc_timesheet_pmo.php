@@ -340,7 +340,7 @@
                                 <th class="text-center">Charge Description</th>
                                 <th class="text-center">Activity</th>
                                 <th class="text-center">Action</th>
-                                <th class="text-center"><div class="checkbox checkbox-success checkbox-circle"><input id="Checkall" class="styled Checkall" type="checkbox"><label for="Checkall">Approve All</label></div></th>
+                                <th class="text-center"><div class="checkbox checkbox-success checkbox-circle"><input id="Checkall" class="styled Checkall" type="checkbox"><label for="Checkall">Checked All</label></div></th>
 			</tr>
 		</thead>
                 

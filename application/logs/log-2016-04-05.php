@@ -441,3 +441,94 @@ ERROR - 2016-04-05 10:38:15 --> Severity: Notice  --> Undefined variable: max_da
 ERROR - 2016-04-05 10:38:15 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 470
 ERROR - 2016-04-05 10:38:15 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 492
 ERROR - 2016-04-05 10:38:15 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 493
+ERROR - 2016-04-05 10:41:09 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 468
+ERROR - 2016-04-05 10:41:09 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 469
+ERROR - 2016-04-05 10:41:09 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 470
+ERROR - 2016-04-05 10:41:09 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 492
+ERROR - 2016-04-05 10:41:09 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 493
+ERROR - 2016-04-05 10:41:21 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 468
+ERROR - 2016-04-05 10:41:21 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 469
+ERROR - 2016-04-05 10:41:21 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 470
+ERROR - 2016-04-05 10:41:21 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 492
+ERROR - 2016-04-05 10:41:21 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 493
+ERROR - 2016-04-05 10:41:24 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-05 10:41:24 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-05 10:41:42 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-05 10:41:42 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-05 10:41:57 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-05 10:41:57 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-05 10:43:07 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-05 10:43:07 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-05 10:44:13 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 169
+ERROR - 2016-04-05 10:44:13 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\views\v_form_timesheet.php 170
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:45:18 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:45:34 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 10:48:19 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:48:39 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:48:51 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 468
+ERROR - 2016-04-05 10:48:51 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 469
+ERROR - 2016-04-05 10:48:51 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 470
+ERROR - 2016-04-05 10:48:51 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 492
+ERROR - 2016-04-05 10:48:51 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 493
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:49:37 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 10:49:41 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 10:53:17 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 10:53:33 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 10:58:47 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 468
+ERROR - 2016-04-05 10:58:47 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 469
+ERROR - 2016-04-05 10:58:47 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 470
+ERROR - 2016-04-05 10:58:47 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 492
+ERROR - 2016-04-05 10:58:47 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 493
+ERROR - 2016-04-05 11:00:04 --> Severity: Notice  --> Undefined variable: min_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 468
+ERROR - 2016-04-05 11:00:04 --> Severity: Notice  --> Undefined variable: max_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 469
+ERROR - 2016-04-05 11:00:04 --> Severity: Notice  --> Undefined variable: holiday_date C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 470
+ERROR - 2016-04-05 11:00:04 --> Severity: Notice  --> Undefined variable: charge_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 492
+ERROR - 2016-04-05 11:00:04 --> Severity: Notice  --> Undefined variable: act_code C:\wamp\www\COAST\application\views\v_rsc_timesheet.php 493
+ERROR - 2016-04-05 11:02:50 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 11:03:21 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::timesheetlist_resource_send_periode(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 385 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 70
+ERROR - 2016-04-05 11:03:29 --> 404 Page Not Found --> C_MANAGE_SALES
+ERROR - 2016-04-05 11:19:00 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::get_email_approval_pmo(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 368 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 489
+ERROR - 2016-04-05 11:19:00 --> Severity: Warning  --> Missing argument 3 for M_RESOURCE_TIMESHEET::get_email_approval_pmo(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 368 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 489
+ERROR - 2016-04-05 11:19:00 --> Severity: Notice  --> Undefined variable: employee_id C:\wamp\www\COAST\application\models\m_resource_timesheet.php 497
+ERROR - 2016-04-05 11:19:00 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\models\m_resource_timesheet.php 497
+ERROR - 2016-04-05 11:19:00 --> Severity: Notice  --> Undefined variable: approved_by C:\wamp\www\COAST\application\models\m_resource_timesheet.php 497
+ERROR - 2016-04-05 11:19:00 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  and a.create_date in (Array) and a.approved_by in () and a.status=1' at line 7
+ERROR - 2016-04-05 11:19:13 --> Severity: Warning  --> Missing argument 2 for M_RESOURCE_TIMESHEET::get_email_approval_pmo(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 368 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 489
+ERROR - 2016-04-05 11:19:13 --> Severity: Warning  --> Missing argument 3 for M_RESOURCE_TIMESHEET::get_email_approval_pmo(), called in C:\wamp\www\COAST\application\controllers\c_resource_timesheet.php on line 368 and defined C:\wamp\www\COAST\application\models\m_resource_timesheet.php 489
+ERROR - 2016-04-05 11:19:13 --> Severity: Notice  --> Undefined variable: employee_id C:\wamp\www\COAST\application\models\m_resource_timesheet.php 497
+ERROR - 2016-04-05 11:19:13 --> Severity: Notice  --> Array to string conversion C:\wamp\www\COAST\application\models\m_resource_timesheet.php 497
+ERROR - 2016-04-05 11:19:13 --> Severity: Notice  --> Undefined variable: approved_by C:\wamp\www\COAST\application\models\m_resource_timesheet.php 497
+ERROR - 2016-04-05 11:19:13 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')  and a.create_date in (Array) and a.approved_by in () and a.status=1' at line 7
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 155
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 163
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
+ERROR - 2016-04-05 11:20:50 --> Severity: Notice  --> Undefined variable: this_posisi C:\wamp\www\COAST\application\views\v_oas002.php 176
