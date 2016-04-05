@@ -332,6 +332,24 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     			'approved_by'=>substr($approved_by,0,-1),
     			'periode_date'=>substr($periode_date,0,-1)
     	);
+    	$this->email->set_newline("\r\n");
+    	$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
+    	foreach ($this->timesheet->get_email_send_back($last_data['create_date'],$last_data['employee_id'],$last_data['approved_by']) as $key => $value){
+    		$this->email->to($value['email']);
+    		$this->email->subject('Submit Timesheet'.$value['sender_name']);
+    		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> Send back your timesheet <br> Please Check by COAS');
+    		if($this->email->send()){
+    			$status=1;
+    		}
+    		else{
+    			$status=0;
+    		}
+    	}
+    	$after_send=array(
+    			'data_sheet'=>$this->timesheet->send_back_resource($last_data['create_date'],$last_data['employee_id'],$last_data['approved_by'],$last_data['periode_date']),
+    			'email_status'=>$status
+    	);
+    	echo json_encode($after_send);
     }
     
     function approve_pmo_accepted(){
