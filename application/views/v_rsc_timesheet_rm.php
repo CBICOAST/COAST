@@ -55,7 +55,7 @@
                        dataType:'json',
                        data:$("#form-edit-timesheet").serialize(),
                        success:function(data) {
-                    	   $('input.Checkall:checkbox').prop( "checked", false );
+                    	   
                     	   $("#send_rm").css("display","none");
                     	   $("#back_rsc").css("display","none");
                    $('#table_timesheet_rm tbody tr').remove(); 
@@ -70,7 +70,7 @@
                        	 var total=0;
                        $.each(data, function (i, item) {
                     	   no=i+1;
-                       	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                       	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'|'+item.periode_date+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                        	var item_status=item.status==1?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                        	var count_status_zero=item.status==1?1:0;
                  trHTML +='<tr><td class="text-center">'+item.date_ts
@@ -128,13 +128,112 @@
                    
                }
         
-        function send_timesheet_rm(url,title,employee,periode,approve){
+        function send_timesheet_rm(url,title,periode){
             var url_link=url;
-            var employee_id=employee;
             var periode_date=periode;
             if(dialog === null)
                 {
-                    dialog = $.Zebra_Dialog('Are you sure to send you\'r <strong>ALL TIMESHEET</strong> on periode <strong>'+periode_date+'</strong>?', {
+                    dialog = $.Zebra_Dialog('Are you sure approve <strong><?php echo $employee_name[0]['EMPLOYEE_NAME']; ?>TIMESHEET</strong> on periode <strong>'+periode_date+'</strong> to PMO?', {
+                                    'type': 'question',
+                                    'overlay_close': false,
+                                    'custom_class':  'form-dialog',
+                                    'title':    title,
+                                    'animation_speed_hide': 50,
+                                    'animation_speed_show': 700,
+                                    'max_height': 550,
+                                    'overlay_opacity': '.75',
+                                    'buttons':  [
+                                    {caption: 'Yes', callback: function() {
+                                    	var myCheckboxes = new Array();
+                                    	$('input.check_row:checkbox:checked').each(function() {
+                                           myCheckboxes.push($(this).val());
+                                        });
+                                            $.ajax({
+                url:url_link,
+                type:'POST',
+                dataType:'json',
+                data:{
+                    check_box:myCheckboxes
+                    
+                },
+                beforeSend: function() {
+                    $('.wait').css('display','block');
+                    $("#send_rm").css("display","none");
+    				$("#back_rsc").css("display","none");
+                },
+                success:function(data){
+                	$('.wait').css('display','none');
+                    var trHTML = '';
+                    if(data.email_status<=0){
+                        $('#email_failed').css('display','block');
+                        $('#email_success').css('display','none');
+                        }
+                    else{
+                    	$('#email_failed').css('display','none');
+                        $('#email_success').css('display','block');
+                        }
+                    	 var total=0;
+                    	 $('#table_timesheet_rm tbody tr').remove(); 
+                            $.each(data.data_sheet, function (i, item) {
+                            	no=i+1;
+                            	var check_status=item.status==1?'<div class="checkbox checkbox-success checkbox-circle"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle"><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
+                            	var item_status=item.status==1?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
+                            	var count_status_zero=item.status==1?1:0;
+              trHTML +='<tr><td class="text-center">'+item.date_ts
+                      +'</td><td class="text-center">'+item.holiday 
+                      +'</td><td class="text-center">'+item.work_desc 
+                      +'</td><td class="text-center">'+item.hours 
+                      +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
+                      +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
+                      +'</a></td><td class="text-center">'+item_status
+                      +'</td><td class="text-center">'+check_status+'</td></tr>';
+              total +=count_status_zero;
+                        });
+                        $('#table_timesheet_rm tbody').append(trHTML);
+                        $("#validasi-form").css({'display':'none'});
+                        $('[data-toggle="tooltip"]').tooltip();
+                        $('input.Checkall:checkbox').prop( "checked", false );
+                        $(".check_row").click(function(){
+                			var pjg_chekbox =$('input.check_row:checkbox').length;
+                			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
+                			if(pjg_checkedbox>0){
+								$("#send_rm").css("display","block");
+								$("#back_rsc").css("display","block");
+                    			}else{
+                    				$("#send_rm").css("display","none");
+                    				$("#back_rsc").css("display","none");
+                        			}
+                			if(pjg_chekbox==pjg_checkedbox){
+                				$('input.Checkall:checkbox').prop( "checked", true );
+                    			}
+                			else{
+                				$('input.Checkall:checkbox').prop( "checked", false );
+                    			}
+                            });
+                    
+                       },
+                  error: function(xhr, resp, text) {
+                  console.log(xhr, resp, text);
+                        }
+            });
+                                    }},
+                                    {caption: 'No', callback: function() { form_dialog_close();}}],
+                                    'width':1000,
+                                    'height':1000,
+                                    'onClose':  function() {
+                                                    form_dialog_close();
+                                                }
+                                });
+                }
+            
+        }
+
+        function send_back_rsc(url,title,periode){
+            var url_link=url;
+            var periode_date=periode;
+            if(dialog === null)
+                {
+                    dialog = $.Zebra_Dialog('Are you sure to send back <strong><?php echo $employee_name[0]['EMPLOYEE_NAME']; ?> TIMESHEET</strong> on periode <strong>'+periode_date+'</strong>?', {
                                     'type': 'question',
                                     'overlay_close': false,
                                     'custom_class':  'form-dialog',
@@ -383,8 +482,8 @@
                 
         </form>
 <button type="button" class="pull-left btn btn-warning" id="back-btn" onclick="change_page(this, 'c_resource_timesheet/approve_rm_emp/<?php echo $approved_by; ?>/<?php echo $periode; ?>')">Back...</button>
-<button value="Approve All" id="send_rm" style="display:none;" class="pull-right btn btn-success " name="submit" onclick="send_timesheet_rm('c_resource_timesheet/approve_pmo','APPROVE ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>','<?php echo $approved_by; ?>')"><i class="fa fa-check-square-o"></i>Approve Checked</button>
-<button value="Approve All" id="back_rsc" style="display:none;" class="pull-right btn btn-warning " name="submit" onclick="send_back_rsc('c_resource_timesheet/approve_pmo','APPROVE ALL TIMESHEET','<?php echo $employee_id; ?>','<?php echo $periode; ?>','<?php echo $approved_by; ?>')"><i class="fa fa-check-square-o"></i>Send Back Cehcked</button>
+<button value="Approve All" id="send_rm" style="display:none;" class="pull-right btn btn-success " name="submit" onclick="send_timesheet_rm('c_resource_timesheet/approve_pmo','APPROVE ALL TIMESHEET','<?php echo $periode; ?>')"><i class="fa fa-check-square-o"></i>Approve Checked</button>
+<button value="Approve All" id="back_rsc" style="display:none;" class="pull-right btn btn-warning " name="submit" onclick="send_back_rsc('c_resource_timesheet/send_back_resource','APPROVE ALL TIMESHEET','<?php echo $periode; ?>')"><i class="fa fa-check-square-o"></i>Send Back Cehcked</button>
 
 
         

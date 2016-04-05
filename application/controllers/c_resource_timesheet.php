@@ -305,6 +305,35 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	);
     	echo json_encode($after_send);
     }
+    
+    function send_back_resource(){
+    	foreach ($this->input->post('check_box') as $key => $value){
+    		$split=explode("|",$value);
+    		$data[]=array(
+    				'create_date'=>$split[0],
+    				'employee_id'=>$split[1],
+    				'approved_by'=>$split[2],
+    				'periode_date'=>$split[3],
+    		);
+    	}
+    	$create_date="";
+    	$employee_id="";
+    	$approved_by="";
+    	$periode_date="";
+    	foreach ($data as $key => $value){
+    		$create_date.="'".$value['create_date']."',";
+    		$employee_id.="'".$value['employee_id']."',";
+    		$approved_by.="'".$value['approved_by']."',";
+    		$periode_date.="'".$value['periode_date']."',";
+    	}
+    	$last_data=array(
+    			'create_date'=>substr($create_date,0,-1),
+    			'employee_id'=>substr($employee_id,0,-1),
+    			'approved_by'=>substr($approved_by,0,-1),
+    			'periode_date'=>substr($periode_date,0,-1)
+    	);
+    }
+    
     function approve_pmo_accepted(){
     	$data=array(
     			'employee_id'=>$this->input->post('employeeid'),

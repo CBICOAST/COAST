@@ -304,7 +304,8 @@ AND act_code='$data[act_code2]' and status='$data[status]'";
 	a.act_code,
 	c.activity,
 	b.PROJECT_DESCRIPTION project_desc,
-	a.status
+	a.status,
+	a.create_date
  FROM tb_r_timesheet as a 
  left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE 
  left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode_date]' and employee_id='$data[employee_id]' $status  order by date_ts asc";
