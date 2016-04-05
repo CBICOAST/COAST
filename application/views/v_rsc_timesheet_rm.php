@@ -159,6 +159,8 @@
                 },
                 beforeSend: function() {
                     $('.wait').css('display','block');
+                    $("#send_rm").css("display","none");
+    				$("#back_rsc").css("display","none");
                 },
                 success:function(data){
                 	$('.wait').css('display','none');
@@ -191,6 +193,7 @@
                         $('#table_timesheet_rm tbody').append(trHTML);
                         $("#validasi-form").css({'display':'none'});
                         $('[data-toggle="tooltip"]').tooltip();
+                        $('input.Checkall:checkbox').prop( "checked", false );
                         $(".check_row").click(function(){
                 			var pjg_chekbox =$('input.check_row:checkbox').length;
                 			var pjg_checkedbox=$('input.check_row:checkbox:checked').length;
@@ -279,6 +282,7 @@
                 				$('input.Checkall:checkbox').prop( "checked", false );
                     			}
                             });
+                        
                         }
                         },
                   error: function(xhr, resp, text) {

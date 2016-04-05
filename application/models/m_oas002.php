@@ -109,7 +109,7 @@ class M_OAS002 extends CI_Model {
 				(CASE menu.PRIV_CA WHEN '5' THEN 
               	(SELECT count(ts.APPROVED_BY) FROM tb_r_timesheet ts, tb_m_user usr
               	WHERE ts.APPROVED_BY = usr.EMPLOYEE_ID AND 
-              	usr.EMPLOYEE_ID = '$data[this_id]' AND ts.STATUS = 1 GROUP BY ts.APPROVED_BY)
+              	usr.EMPLOYEE_ID = '$data[this_id]' GROUP BY ts.APPROVED_BY)
               	ELSE 0 END) count_ts_approval,
               
 							menu.*

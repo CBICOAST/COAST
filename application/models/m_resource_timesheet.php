@@ -381,7 +381,7 @@ from tb_m_ts order by periode_date desc";
        		return fetchArray($sql2, 'all');
        	}
        }
-       function approve_pmo($create_date,$employee_id,$approved_by){
+       function approve_pmo($create_date,$employee_id,$approved_by,$periode){
        	$ack=0;
        	$sql="UPDATE tb_r_timesheet SET status=2 WHERE status=1 AND employee_id in ($employee_id) AND create_date in ($create_date) AND approved_by in ($approved_by)";
        	if($this->db->query($sql)){
@@ -403,7 +403,7 @@ from tb_m_ts order by periode_date desc";
        		a.status
        		FROM tb_r_timesheet as a
        		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
-       		left join tb_m_activity as c on a.act_code=c.act_code  where a.create_date in ($create_date) and employee_id in ($employee_id) AND approved_by in ($approved_by) AND a.status<>0 order by date_ts asc";
+       		left join tb_m_activity as c on a.act_code=c.act_code  where a.periode_date in ($periode) and employee_id in ($employee_id) AND approved_by in ($approved_by) AND a.status<>0 order by date_ts asc";
        		return fetchArray($sql2, 'all');
        	}
        }
@@ -446,9 +446,9 @@ left join tb_m_employee as d on a.employee_id=d.EMPLOYEE_ID
 where a.employee_id in ($data[employee_id])  and a.create_date in ($data[create_date]) and a.status=0";
        	return fetchArray($sql, 'all');
        }
-       function get_email_approval_pmo($create_date,$employee_id,$approved_by){
-       	
-       	$sql="select	distinct
+       function get_email_approval_pmo($create_date,$employee_id,$approved_by)
+       {
+       	$sql="select distinct
        	c.EMPLOYEE_NAME 'rm',
        	d.EMPLOYEE_NAME 'resource'
        	from tb_r_timesheet  as a
@@ -460,7 +460,6 @@ where a.employee_id in ($data[employee_id])  and a.create_date in ($data[create_
        function delete_periode($data){
        	$ack=0;
        	$sql="DELETE FROM tb_m_ts where periode_date='$data[periode]'";
-       	
        	if($this->db->query($sql)){
        		$ack=1;
        	}
