@@ -294,7 +294,7 @@
                 },
                 beforeSend: function() {
                     $('.wait').css('display','block');
-                    $('#send').css('display','block');
+                    $('#send').css('display','none');
                 },
                 success:function(data){
                 	$('.wait').css('display','none');
