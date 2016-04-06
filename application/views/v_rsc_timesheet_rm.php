@@ -244,6 +244,8 @@
                                     'title':    title,
                                     'animation_speed_hide': 50,
                                     'animation_speed_show': 700,
+                                    'source':  {'ajax': '<?php echo base_url(); ?>'+'c_resource_timesheet/masg_sendback/',
+                                        'cache': false},
                                     'max_height': 550,
                                     'overlay_opacity': '.75',
                                     'buttons':  [
@@ -257,7 +259,8 @@
                 type:'POST',
                 dataType:'json',
                 data:{
-                    check_box:myCheckboxes
+                    check_box:myCheckboxes,
+                    note:$('#note').val()
                     
                 },
                 beforeSend: function() {

@@ -307,6 +307,7 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     }
     
     function send_back_resource(){
+    	$note=$this->input->post('note');
     	foreach ($this->input->post('check_box') as $key => $value){
     		$split=explode("|",$value);
     		$data[]=array(
@@ -336,8 +337,8 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
     	foreach ($this->timesheet->get_email_send_back($last_data['create_date'],$last_data['employee_id'],$last_data['approved_by']) as $key => $value){
     		$this->email->to($value['email']);
-    		$this->email->subject('Submit Timesheet'.$value['sender_name']);
-    		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> Send back your timesheet <br> Please Check by COAS');
+    		$this->email->subject('Send Back Timesheet '.$value['sender_name']);
+    		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> Send back your timesheet <br> Please Check by COAS <br> <b>Note:</b> '.$note);
     		if($this->email->send()){
     			$status=1;
     		}
@@ -350,6 +351,10 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     			'email_status'=>$status
     	);
     	echo json_encode($after_send);
+    }
+    
+    function masg_sendback(){
+    	$this->load->view('v_form_sendback');
     }
     
     function approve_pmo_accepted(){
