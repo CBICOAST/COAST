@@ -102,6 +102,7 @@
 			<tr>
                             <th width="5" class="text-center">No</th>
 				<th class="text-center">Timesheet Periode</th>
+				<th class="text-center">Due Date</th>
                                 
 			</tr>
 		</thead>
@@ -113,6 +114,7 @@
                         echo "<tr class='Approved'>";
                         echo "<td class='text-center'>".$idx."</td>";
                         echo "<td ><a href=\"#\" title=\"Detail\" onclick=\"change_page(this, 'c_resource_timesheet/load_timesheet_periode/".$value['date_period']."/".$employee_id."/resource')\"><b>".$value['char_period']."</b></a></td>";
+                        echo "<td class='text-center'><code>".$value['expired_date']."</code></td>";
                        
                         echo "</tr>";
      }

@@ -70,13 +70,15 @@
                        	 var total=0;
                        $.each(data, function (i, item) {
                     	   no=i+1;
+                    	   var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
                        	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'|'+item.periode_date+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                        	var item_status=item.status==1?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                        	var count_status_zero=item.status==1?1:0;
                  trHTML +='<tr><td class="text-center">'+item.date_ts
                          +'</td><td class="text-center">'+item.holiday 
                          +'</td><td class="text-center">'+item.work_desc 
-                         +'</td><td class="text-center">'+item.hours 
+                         +'</td><td class="text-center">'+item.hours
+                         +'</td><td class="text-center">'+overtime 
                          +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                          +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                          +'</a></td><td class="text-center">'+item_status
@@ -176,13 +178,15 @@
                     	 $('#table_timesheet_rm tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
                             	no=i+1;
+                            	var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
                             	var check_status=item.status==1?'<div class="checkbox checkbox-success checkbox-circle"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle"><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                             	var item_status=item.status==1?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
-                      +'</td><td class="text-center">'+item.hours 
+                      +'</td><td class="text-center">'+item.hours
+                      +'</td><td class="text-center">'+overtime 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status
@@ -276,13 +280,15 @@
                     	 $('#table_timesheet_rm tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
                             	no=i+1;
+                            	var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
                             	var check_status=item.status==1?'<div class="checkbox checkbox-success checkbox-circle"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle"><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                             	var item_status=item.status==1?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
-                      +'</td><td class="text-center">'+item.hours 
+                      +'</td><td class="text-center">'+item.hours
+                      +'</td><td class="text-center">'+overtime 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status
@@ -348,13 +354,15 @@
                             var total=0;
                             $.each(data, function (i, item) {
                             	no=i+1;
+                            	var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
                             	var check_status=item.status==1?'<div style="margin:0px;padding:0px;" class="checkbox checkbox-success checkbox-circle check_approve"><input id="checkbox'+no+'" class="styled check_row" type="checkbox" value="'+item.create_date+'|'+item.employee_id+'|'+item.approved_by+'|'+item.periode_date+'"><label for="checkbox'+no+'">Check for Approve </label></div>':'<div class="checkbox checkbox-circle "><input id="check'+no+'" class="styled" type="checkbox" disabled><label for="check'+no+'"> Check for Approve</label></div>';
                             	var item_status=item.status==1?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_rm(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/1\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==1?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
-                      +'</td><td class="text-center">'+item.hours 
+                      +'</td><td class="text-center">'+item.hours
+                      +'</td><td class="text-center">'+overtime 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status
@@ -466,6 +474,7 @@
                                 <th class="text-center">Holiday</th>
                                 <th class="text-center">Work Description</th>
                                 <th class="text-center">Hours</th>
+                                <th class="text-center">Overtime</th>
                                 <th class="text-center">Charge Description</th>
                                 <th class="text-center">Activity</th>
                                 <th class="text-center">Action</th>
