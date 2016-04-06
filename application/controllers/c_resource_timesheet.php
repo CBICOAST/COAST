@@ -337,8 +337,8 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	$this->email->from('dimyatiabisaad@gmail.com', 'COAS');
     	foreach ($this->timesheet->get_email_send_back($last_data['create_date'],$last_data['employee_id'],$last_data['approved_by']) as $key => $value){
     		$this->email->to($value['email']);
-    		$this->email->subject('Send Back Timesheet '.$value['sender_name']);
-    		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> Send back your timesheet <br> Please Check by COAS <br> <b>Note:</b> '.$note);
+    		$this->email->subject('Send Back Timesheet by '.$value['sender_name']);
+    		$this->email->message('Dear '.$value['reciver_name'].'<br> <b>'.$value['sender_name'].'</b> Send back your timesheet <br> Please Check COAS <br> <b>Note:</b> '.$note);
     		if($this->email->send()){
     			$status=1;
     		}
@@ -346,10 +346,19 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     			$status=0;
     		}
     	}
-    	$after_send=array(
+    	$count_sheet=count($this->timesheet->send_back_resource($last_data['create_date'],$last_data['employee_id'],$last_data['approved_by'],$last_data['periode_date']));
+    	if($count_sheet==0){
+    		$after_send=array(
+    			'data_sheet'=>0,
+    			'email_status'=>$status
+    	);
+    	}else{
+    		$after_send=array(
     			'data_sheet'=>$this->timesheet->send_back_resource($last_data['create_date'],$last_data['employee_id'],$last_data['approved_by'],$last_data['periode_date']),
     			'email_status'=>$status
     	);
+    	}
+    	
     	echo json_encode($after_send);
     }
     

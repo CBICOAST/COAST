@@ -271,6 +271,12 @@
                 success:function(data){
                 	$('.wait').css('display','none');
                     var trHTML = '';
+                    if(data.data_sheet===0){
+                    	 $('#table_timesheet_rm tbody tr').remove();
+                        $('#table_timesheet_rm tbody').append('<tr><td colspan="9" class="text-center">Data Not Found</td></tr>');
+                        $('#send_rm').css("display","none");
+                    }
+                    else{
                     if(data.email_status<=0){
                         $('#email_failed').css('display','block');
                         $('#email_success').css('display','none');
@@ -280,7 +286,8 @@
                         $('#email_success').css('display','block');
                         }
                     	 var total=0;
-                    	 $('#table_timesheet_rm tbody tr').remove(); 
+                    	 $('#table_timesheet_rm tbody tr').remove();
+                    	 
                             $.each(data.data_sheet, function (i, item) {
                             	no=i+1;
                             	var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
@@ -319,7 +326,7 @@
                 				$('input.Checkall:checkbox').prop( "checked", false );
                     			}
                             });
-                    
+                    }
                        },
                   error: function(xhr, resp, text) {
                   console.log(xhr, resp, text);
@@ -348,6 +355,7 @@
                         approvedby:'<?php echo $approved_by;?>'
                         },
                     success:function(data){
+                    	
                     var trHTML = '';
                         if(data ===0){
                             $('#table_timesheet_rm tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
