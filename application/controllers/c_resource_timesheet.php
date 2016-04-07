@@ -405,6 +405,21 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
     	$param['employee_id']=$this->input->post('employee_id');
     	echo json_encode($this->timesheet->delete_periode($param));
     }
+    function get_prev_overtime(){
+    	date_default_timezone_set('Asia/Jakarta');
+    	if($this->input->post('holiday')=='Yes'){
+    		$data[]=array(
+    				'overtime'=>$this->input->post('hours')
+    		);
+    		echo json_encode($data);
+    	}else{
+    		
+    		echo json_encode($this->timesheet->get_prev_overtime($this->input->post('hours'),$this->input->post('date_ts'),$this->input->post('employee_id')));
+    	}
+    	
+    	
+    	
+    }
 }
 
 /* End of file c_oas021.php */

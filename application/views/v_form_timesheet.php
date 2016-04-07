@@ -25,7 +25,7 @@
                     <input readonly="" style="text-align: left; width: 13%;height: 100%;cursor: pointer;font-size: 90%;" value="" class="form-control holo date_ts" id="date_ts" name="date_ts">
                     <input type="hidden" name="holiday" id="holiday" />
                     <input type="hidden" id="periode" name='periode' value="<?php echo $periode; ?>"/>
-                    <input type="hidden" value="<?php echo $employee_id; ?>" name="employee_id"/>
+                    <input type="hidden" value="<?php echo $employee_id; ?>" name="employee_id" id="employee_id"/>
                 </div>
 				<span id="spanId"style="color:red;"></span>
             </div>
@@ -52,8 +52,8 @@
                     <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                     </div>
-                    <input style="text-align: left; width: 7%;height: 100%;" value="" class="form-control holo" id="hours" name="hours">
-                    
+                    <input style="text-align: left; width: 7%;height: 100%;" value="" class="form-control holo decimal hours" id="hours" name="hours">
+                    <input style="text-align: left; width: 7%;height: 100%;" value="" class="form-control holo decimal" id="overtime" name="overtime" type="hidden"/>
                 </div>
 				<span id="spanId"style="color:red;"></span>
             </div>
@@ -130,21 +130,26 @@ $(document).ready(function(){
             var maxdate='<?php echo $max_date; ?>';
             var active_dates = <?php echo $holiday_date; ?>;
             
-            $("#hours").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-             // Allow: Ctrl+A, Command+A
-            (e.keyCode === 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
-             // Allow: home, end, left, right, down, up
-            (e.keyCode >= 35 && e.keyCode <= 40)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
+            $('#hours').bind('paste', function () {
+                var self = this;
+                setTimeout(function () {
+                    if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+                }, 0);
+            });
+            
+            $('.decimal').keypress(function (e) {
+                var character = String.fromCharCode(e.keyCode)
+                var newValue = this.value + character;
+                if (isNaN(newValue) || hasDecimalPlace(newValue, 2)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            function hasDecimalPlace(value, x) {
+                var pointIndex = value.indexOf('.');
+                return  pointIndex >= 0 && pointIndex < value.length - x ;
+            }
         
         $('#date_ts').datepicker({
                 format: "yyyy-mm-dd",
@@ -165,6 +170,33 @@ $(document).ready(function(){
            }
           return;
       }
+            });
+
+        $('.hours').focusout(function(){
+			$.ajax({
+				url:'<?php echo base_url(); ?>'+'c_resource_timesheet/get_prev_overtime/',
+				type:'POST',
+                dataType:'json',
+                data:{
+                hours:$('.hours').val(),
+                date_ts:$('#date_ts').val(),
+                holiday:$('#holiday').val(),
+                employee_id:$('#employee_id').val()
+                },
+                success:function(data){
+                    if(data[0].overtime<=0){
+						var dataovertime=0;
+                        }
+                    else{
+						var dataovertime=data[0].overtime;
+                        }
+                $('#overtime').val(dataovertime);
+                    
+},
+              error: function(xhr, resp, text) {
+              console.log(xhr, resp, text);
+                    }
+				});
             });
             //var charcode = <?php echo $charge_code; ?>;
             //var actcode = <?php echo $act_code; ?>;
