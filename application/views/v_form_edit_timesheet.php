@@ -24,7 +24,7 @@
                     <input readonly=""  style="text-align: left; width: 175px;height: 100%;" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" class="form-control holo date_ts" id="date_ts" name="date_ts">
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['date_ts']; ?>" name="date_ts2"/>
                     <input type="hidden" value="<?php echo $edit_data_timesheet[0]['holiday']; ?>" name="holiday" id="holiday" />
-                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['employee_id']; ?>" name="employee_id"/>
+                    <input type="hidden" value="<?php echo $edit_data_timesheet[0]['employee_id']; ?>" name="employee_id" id="employee_id"/>
                     <input type="hidden" id="periode" name="periode" value="<?php echo $edit_data_timesheet[0]['periode_date']; ?>"/>
                 </div>
 				<span id="spanId"style="color:red;"></span>
@@ -65,8 +65,8 @@
                     <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                     </div>
-                    <input value="<?php echo $edit_data_timesheet[0]['hours']; ?>" style="text-align: left; width: 25px;height: 100%;" value="" class="form-control holo" id="hours" name="hours">
-                    
+                    <input value="<?php echo $edit_data_timesheet[0]['hours']; ?>" style="text-align: left; width: 25px;height: 100%;" value="" class="form-control holo decimal hours" id="hours" name="hours">
+                    <input style="text-align: left; width: 7%;height: 100%;" value="" class="form-control holo decimal" id="overtime" name="overtime" type="hidden"/>
                 </div>
 				
             </div>
@@ -152,24 +152,54 @@ $(document).ready(function(){
 
             var mindate='<?php echo $min_date; ?>';
             var maxdate='<?php echo $max_date; ?>';
-            var active_dates = <?php echo $holiday_date; ?>;
             
-            $("#hours").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-             // Allow: Ctrl+A, Command+A
-            (e.keyCode === 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
-             // Allow: home, end, left, right, down, up
-            (e.keyCode >= 35 && e.keyCode <= 40)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
+            
+            $('#hours').bind('paste', function () {
+                var self = this;
+                setTimeout(function () {
+                    if (!/^\d*(\.\d{1,2})+$/.test($(self).val())) $(self).val('');
+                }, 0);
+            });
+            
+            $('.decimal').keypress(function (e) {
+                var character = String.fromCharCode(e.keyCode)
+                var newValue = this.value + character;
+                if (isNaN(newValue) || hasDecimalPlace(newValue, 2)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            function hasDecimalPlace(value, x) {
+                var pointIndex = value.indexOf('.');
+                return  pointIndex >= 0 && pointIndex < value.length - x ;
+            }
         
+            $('.hours').on("change keyup",function(){
+    			$.ajax({
+    				url:'<?php echo base_url(); ?>'+'c_resource_timesheet/get_prev_overtime/',
+    				type:'POST',
+                    dataType:'json',
+                    data:{
+                    hours:$('.hours').val(),
+                    date_ts:$('#date_ts').val(),
+                    holiday:$('#holiday').val(),
+                    employee_id:$('#employee_id').val()
+                    },
+                    success:function(data){
+                        if(data[0].overtime<=0){
+    						var dataovertime=0;
+                            }
+                        else{
+    						var dataovertime=data[0].overtime;
+                            }
+                    $('#overtime').val(dataovertime);
+                        
+    },
+                  error: function(xhr, resp, text) {
+                  console.log(xhr, resp, text);
+                        }
+    				});
+                });
         $('#date_ts').datepicker({
                 format: "yyyy-mm-dd",
                 startDate: mindate,
@@ -182,7 +212,7 @@ $(document).ready(function(){
          var curr_year = d.getFullYear();
          var formattedDate = curr_year + "-" + curr_month + "-" + curr_date;
 
-           if ($.inArray(formattedDate, active_dates) !== -1){
+           if ($.inArray(formattedDate, <?php echo $holiday_date; ?>) !== -1){
                return {
                   classes: 'activeClassdt'
                };

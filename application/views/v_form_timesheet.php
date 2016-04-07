@@ -172,7 +172,7 @@ $(document).ready(function(){
       }
             });
 
-        $('.hours').focusout(function(){
+        $('.hours').on("change keyup",function(){
 			$.ajax({
 				url:'<?php echo base_url(); ?>'+'c_resource_timesheet/get_prev_overtime/',
 				type:'POST',
