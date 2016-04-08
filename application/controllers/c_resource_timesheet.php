@@ -157,6 +157,7 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
              'act_code' => $this->input->post('activity')[0],
              'approved_by' => $this->input->post('approved')[0],
              'holiday'=> $this->input->post('holiday'),
+         	 'overtime'=>$this->input->post('overtime'),
              'status'=>0
          );
      echo json_encode($this->timesheet->upload_timesheet($dat_arr,$this->input->post('periode'),$this->input->post('employee_id')));
@@ -176,7 +177,8 @@ class C_RESOURCE_TIMESHEET extends MY_Controller {
              'act_code' => $this->input->post('activity')[0],
              'act_code2' => $this->input->post('activity2'),
              'approved_by' => $this->input->post('approved')[0],
-             'holiday'=> $this->input->post('holiday'),
+         	 'overtime'=>$this->input->post('overtime'),
+             'holiday'=>$this->input->post('holiday'),
              'status'=>$this->input->post('jenis')
          );
          echo json_encode($this->timesheet->edit_timesheet($dat_arr));
