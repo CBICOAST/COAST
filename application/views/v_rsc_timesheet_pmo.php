@@ -68,14 +68,14 @@
                 	 var total=0;
                 $.each(data, function (i, item) {
              	   no=i+1;
-             	  var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
+             	 
                 	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_pmo(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/2\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                 	var count_status_zero=item.status==2?1:0;
           trHTML +='<tr><td class="text-center">'+item.date_ts
                   +'</td><td class="text-center">'+item.holiday 
                   +'</td><td class="text-center">'+item.work_desc 
                   +'</td><td class="text-center">'+item.hours
-                  +'</td><td class="text-center">'+overtime 
+                  +'</td><td class="text-center">'+item.overtime 
                   +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                   +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                   +'</a></td><td class="text-center">'+item_status+'</td></tr>';
@@ -151,14 +151,14 @@
                     	 $('#table_timesheet_pmo tbody tr').remove(); 
                             $.each(data.data_sheet, function (i, item) {
                             	 no=i+1;
-                            	 var overtime=item.holiday=='Yes'?item.hours:((item.hours-9)<0)?0:(item.hours-9);
+                            	 
                               	var item_status=item.status==2?'<a class="btn btn-info btn-xs" onclick=\"form_edit_timesheet_pmo(\'EDIT TIMESHEET RECORD\', \'c_resource_timesheet/form_edit_timesheet/'+item.periode_date+'/'+item.date_ts+'/'+item.charge_code+'/'+item.employee_id+'/'+item.act_code+'/2\')"><i class="fa fa-pencil-square-o"></i>Edit</a>':'Already Send';
                             	var count_status_zero=item.status==2?1:0;
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
                       +'</td><td class="text-center">'+item.hours
-                      +'</td><td class="text-center">'+overtime  
+                      +'</td><td class="text-center">'+item.overtime  
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status+'</td></tr>';

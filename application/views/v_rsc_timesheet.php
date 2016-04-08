@@ -59,7 +59,7 @@
                        
                        var trHTML = '';
                        if(data ===0){
-                           $('#table_timesheet tbody').append('<tr><td colspan="7" class="text-center">Data Not Found</td></tr>');
+                           $('#table_timesheet tbody').append('<tr><td colspan="8" class="text-center">Data Not Found</td></tr>');
                            $("#validasi-form").css({'display':'none'});
                            $('#send').css("display","none");
                        }
@@ -71,7 +71,8 @@
                  trHTML +='<tr><td class="text-center">'+item.date_ts
                          +'</td><td class="text-center">'+item.holiday 
                          +'</td><td class="text-center">'+item.work_desc 
-                         +'</td><td class="text-center">'+item.hours 
+                         +'</td><td class="text-center">'+item.hours
+                         +'</td><td class="text-center">'+item.overtime 
                          +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                          +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                          +'</a></td><td class="text-center">'+item_status+'</td></tr>';
@@ -150,7 +151,8 @@
                       trHTML +='<tr><td class="text-center">'+item.date_ts
                               +'</td><td class="text-center">'+item.holiday 
                               +'</td><td class="text-center">'+item.work_desc 
-                              +'</td><td class="text-center">'+item.hours 
+                              +'</td><td class="text-center">'+item.hours
+                              +'</td><td class="text-center">'+item.overtime 
                               +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                               +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                               +'</a></td><td class="text-center">'+item_status+'</td></tr>';
@@ -235,7 +237,8 @@
           trHTML +='<tr><td class="text-center">'+item.date_ts
                   +'</td><td class="text-center">'+item.holiday 
                   +'</td><td class="text-center">'+item.work_desc 
-                  +'</td><td class="text-center">'+item.hours 
+                  +'</td><td class="text-center">'+item.hours
+                  +'</td><td class="text-center">'+item.overtime 
                   +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                   +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                   +'</a></td><td class="text-center">'+item_status+'</td></tr>';
@@ -315,7 +318,8 @@
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
-                      +'</td><td class="text-center">'+item.hours 
+                      +'</td><td class="text-center">'+item.hours
+                      +'</td><td class="text-center">'+item.overtime 
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status+'</td></tr>';
@@ -369,7 +373,8 @@
               trHTML +='<tr><td class="text-center">'+item.date_ts
                       +'</td><td class="text-center">'+item.holiday 
                       +'</td><td class="text-center">'+item.work_desc 
-                      +'</td><td class="text-center">'+item.hours 
+                      +'</td><td class="text-center">'+item.hours
+                      +'</td><td class="text-center">'+item.overtime  
                       +'</td><td class="text-center"><a data-toggle="tooltip" title="'+item.project_desc+'">'+item.charge_code 
                       +'</a></td><td class="text-center"><a data-toggle="tooltip" title="'+item.activity+'">'+item.act_code
                       +'</a></td><td class="text-center">'+item_status+'</td></tr>';
@@ -447,6 +452,7 @@
                                 <th class="text-center">Holiday</th>
                                 <th class="text-center">Work Description</th>
                                 <th class="text-center">Hours</th>
+                                <th class="text-center">Overtime</th>
                                 <th class="text-center">Charge Description</th>
                                 <th class="text-center">Activity</th>
                                 <th class="text-center">Action</th>

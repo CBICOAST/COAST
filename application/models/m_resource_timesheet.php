@@ -205,7 +205,8 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
 	a.act_code,
 	c.activity,
 	b.PROJECT_DESCRIPTION project_desc,
-	a.status
+	a.status,
+	a.overtime
  FROM tb_r_timesheet as a 
  left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE 
  left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$periode' and employee_id='$employee_id' order by date_ts asc";
@@ -229,7 +230,8 @@ ORDER BY a + b) as tgl where tgl.Fulldate='$date'";
 	a.act_code,
 	c.activity,
 	b.PROJECT_DESCRIPTION project_desc,
-	a.status
+	a.status,
+	a.overtime
  FROM tb_r_timesheet as a 
  left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE 
  left join tb_m_activity as c on a.act_code=c.act_code where a.employee_id='$id_employee' and a.periode_date='$periode' order by date_ts";
@@ -334,7 +336,8 @@ AND act_code='$data[act_code2]' and status='$data[status]'";
 	a.act_code,
 	c.activity,
 	b.PROJECT_DESCRIPTION project_desc,
-	a.status
+	a.status,
+	a.overtime
  FROM tb_r_timesheet as a 
  left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE 
  left join tb_m_activity as c on a.act_code=c.act_code  where periode_date='$data[periode_date]' and employee_id='$data[employee_id]' order by date_ts asc";
@@ -403,7 +406,8 @@ from tb_m_ts order by periode_date desc";
        		a.act_code,
        		c.activity,
        		b.PROJECT_DESCRIPTION project_desc,
-       		a.status
+       		a.status,
+       		a.overtime
        		FROM tb_r_timesheet as a
        		left join tb_m_charge_code as b on a.charge_code=b.CHARGE_CODE
        		left join tb_m_activity as c on a.act_code=c.act_code  where a.periode_date in ($periode) and employee_id in ($employee_id) AND approved_by in ($approved_by) AND a.status<>0 order by date_ts asc";
