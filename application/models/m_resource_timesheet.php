@@ -520,7 +520,7 @@ from tb_m_ts order by periode_date desc";
        }
        function get_prev_overtime($hours,$date_ts,$employee_id){
        	$sql="SELECT 
-		($hours+sum(hours))-sum(overtime)-9 as overtime
+		($hours+ifnull(sum(hours),0))-ifnull(sum(overtime),0)-9 as overtime
 		FROM tb_r_timesheet where 
 		employee_id='$employee_id' and 
 		date_ts='$date_ts' and 
